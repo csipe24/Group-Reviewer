@@ -1,6 +1,6 @@
 import React from "react";
 
-import {useIsAuthenicated, useLogout} from "../utils/auth";
+import {useIsAuthenticated, useLogout} from "../utils/auth";
 
 function Home() {
     const isAuth = useIsAuthenticated;
@@ -9,9 +9,10 @@ function Home() {
     return (
         <div>
             <h1>Home</h1>
-            {
+            <button name="login" href="">Login</button>
+            {/* {
                 isAuth ? <button onClick={logout}></button>
-            }
+            } */}
         </div>
     )
 }

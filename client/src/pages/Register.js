@@ -1,5 +1,4 @@
 import React, {useRef} from "react";
-import app from "../utils/api";
 import {useLogin} from "../utils/auth"
 import api from "../utils/api";
 
@@ -20,6 +19,7 @@ function Register() {
         const password = passwordInput.current.value;
         const password2 = password2Input.current.value;
         const state = stateInput.current.value;
+        console.log()
 
         api.register({name, email, password, password2, state})
         .then( () => login({email, password}))

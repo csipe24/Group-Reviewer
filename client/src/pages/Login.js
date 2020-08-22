@@ -1,6 +1,5 @@
 import React, {useRef} from "react";
-import app from "../utils/api";
-import {useLogin} from "../utils/auth"
+import {useIsAuthenticated} from "../utils/auth"
 import api from "../utils/api";
 
 function Login() {
@@ -8,7 +7,7 @@ function Login() {
     const emailInput = useRef();
     const passwordInput = useRef();
 
-    const login = useLogin();
+    const userAuth = useIsAuthenticated();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,7 +20,7 @@ function Login() {
     }
     return (
         <div>
-            <h1>Register</h1>
+            <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <input type="email" name="email" placeholder="email" ref={emailInput}/>
                 <input type="password" name="password" placeholder="password" ref={passwordInput}/>
