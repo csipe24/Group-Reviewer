@@ -4,7 +4,6 @@ require("./models");
 app.use(passport.initialize());
 require("./passport")(passport);
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3002;
 
@@ -19,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api", require("./routes/authController") );
 
 
-app.get("*", (res, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname,"./clientbuild/index.html"))
 })
 

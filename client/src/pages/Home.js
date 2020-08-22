@@ -9,7 +9,7 @@ function Home() {
     return (
         <div>
             <h1>Home</h1>
-            <button name="login" href="">Login</button>
+            <button name="login" href="/login">Login</button>
             {/* {
                 isAuth ? <button onClick={logout}></button>
             } */}
