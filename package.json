@@ -24,12 +24,15 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
+    "grommet": "^2.15.0",
     "if-env": "^1.0.4",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "polished": "^3.6.5",
+    "styled-components": "^5.1.1",
     "validator": "^13.1.1"
   }
 }
