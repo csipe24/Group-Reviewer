@@ -1,18 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import {useIsAuthenticated, useLogout} from "../utils/auth";
-
-function Home() {
-    const isAuth = useIsAuthenticated;
-    const logout = useLogout();
-
-    return (
+function Home(){
+    return(
         <div>
-            <h1>Home</h1>
-            <button name="login" href="">Login</button>
-            {/* {
-                isAuth ? <button onClick={logout}></button>
-            } */}
+            <h1>Home Page</h1>
+            <a href="/login">Login</a>
+            <br />
+            <a href="/register">Register</a>
         </div>
     )
 }
