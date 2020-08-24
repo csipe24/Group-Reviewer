@@ -1,19 +1,15 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
 import PageFooter from "../components/Footer";
-import PostForm from "../components/Form"
 
-
-function Home(){
+function Feed(){
     return(
         <div>
             <Navbar/>
-            <h1>Home Page</h1>
-            <h1>Welcome to the Group Reviewer!</h1>
-            <PostForm/>
+            <h1>Welcome To Your Feed</h1>
             <PageFooter/>
         </div>
     )
 }
 
-export default Home;
+export default Feed;
