@@ -28,7 +28,8 @@ app.get("*", function (req, res) {
 });
 
 // Connect to the Mongo DB
-// swap database name
+
+// swap database name when deploying to heroku
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/GroupReviwerDB", {
     useNewUrlParser: true,
@@ -36,7 +37,6 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
-// Start the API server
 app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

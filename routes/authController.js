@@ -12,9 +12,7 @@ const validateLoginInput = require("../config/validation/login");
 const {User} = require("../models");
 
 router.post("/authenticated", passport.authenticate('jwt', { session: false }), (req, res) => {
-
   res.json( req.user );
-
 });
 
 router.post("/register", (req, res) => {
