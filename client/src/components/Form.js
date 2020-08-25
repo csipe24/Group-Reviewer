@@ -20,11 +20,11 @@ function PostForm() {
     <Grommet plain>
         <Stack>
         <Form>
-            <FormField name="name" htmlfor="text-input-id" label="Name">
-                <TextInput id="text-input-id" name="name" />
+            <FormField name="title" htmlfor="text-input-id" label="Title">
+                <TextInput id="text-input-id" name="title" />
             </FormField>
-            <FormField name="name" htmlfor="text-input-id" label="Name">
-                <TextInput id="text-input-id" name="name" />
+            <FormField name="body" htmlfor="text-input-id" label="Body">
+                <TextInput id="text-input-id" name="body" />
             </FormField>
             <Box direction="row" gap="medium">
                 <Button type="submit" primary label="Submit" />

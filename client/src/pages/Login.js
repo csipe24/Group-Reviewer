@@ -29,7 +29,7 @@ function Login(){
     return (
     <div>
     <Navbar/>
-    <h1>Home!</h1>
+    <h1>Login</h1>
     <a href="/home"></a>
     <a href="/register"></a>
     <form onSubmit={handleSubmit}>
@@ -37,6 +37,8 @@ function Login(){
         <input type="password" name="password" placeholder="Password Here" ref={passwordInput}></input>
         <button>Submit</button>
     </form>
+    <h2>Havent Registered?</h2>
+    <h2>Click <a href="/register">Here</a></h2>
     <PageFooter/>
     </div>
         )
