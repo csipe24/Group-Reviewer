@@ -1,8 +1,6 @@
 import React, {useRef} from "react";
 import api from "../utils/api";
 import { useLogin } from "../utils/auth";
-import Navbar from "../components/Navbar";
-import PageFooter from "../components/Footer";
 
 function Login(){
     
@@ -28,7 +26,6 @@ function Login(){
 
     return (
     <div>
-    <Navbar/>
     <h1>Login</h1>
     <a href="/home"></a>
     <a href="/register"></a>
@@ -39,7 +36,6 @@ function Login(){
     </form>
     <h2>Havent Registered?</h2>
     <h2>Click <a href="/register">Here</a></h2>
-    <PageFooter/>
     </div>
         )
 }
