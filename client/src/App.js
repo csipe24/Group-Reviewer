@@ -2,6 +2,8 @@ import React from "react";
 import { useAuthTokenStore } from "./utils/auth";
 
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Navbar from "./components/Navbar";
+import PageFooter from "./components/Footer";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Feed from "./pages/Feed";
@@ -13,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+      <Navbar/>
         <div>
           <Switch>
           <Route exact path="/" component={Home}/>
@@ -22,6 +25,7 @@ function App() {
           <Route component={NoMatch} />
           </Switch>
         </div>
+        <PageFooter/>
       </Router>
     </div>
   );

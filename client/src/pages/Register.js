@@ -1,8 +1,6 @@
 import React, { useRef } from "react";
 import api from "../utils/api";
 import { useLogin } from "../utils/auth";
-import Navbar from "../components/Navbar";
-import PageFooter from "../components/Footer";
 
 function Register() {
   const nameInput = useRef();
@@ -28,7 +26,6 @@ function Register() {
 
   return (
     <div>
-      <Navbar/>
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder="username" ref={nameInput} />
@@ -47,7 +44,6 @@ function Register() {
         />
         <button>Submit</button>
       </form>
-      <PageFooter/>
     </div>
   );
 }
