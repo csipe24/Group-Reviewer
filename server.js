@@ -11,7 +11,7 @@ const passport = require("passport");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-require("./models");
+// require("./models");
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
@@ -31,9 +31,14 @@ app.get("*", function (req, res) {
 
 // swap database name when deploying to heroku
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://csipe24:chrissipe1@ds047197.mlab.com:47197/heroku_whpnp6md", {
-    useNewUrlParser: true,
-  })
+  .connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/groupreviewer',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 

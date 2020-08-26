@@ -20,6 +20,7 @@ function Register() {
 
     api
       .register({ name, email, password, password2 })
+      .then(console.log({name, email, password, password2}))
       .then(() => login({ email, password }))
       .then(() => (window.location.href = "./"));
   };
