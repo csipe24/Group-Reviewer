@@ -11,7 +11,7 @@ const passport = require("passport");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-require("./models");
+// require("./models");
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
