@@ -31,7 +31,7 @@ app.get("*", function (req, res) {
 
 // swap database name when deploying to heroku
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/GroupReviwerDB", {
+  .connect(process.env.MONGODB_URI || "mongodb://heroku_whpnp6md:chrissipe1@ds047197.mlab.com:47197/heroku_whpnp6md", {
     useNewUrlParser: true,
   })
   .then(() => console.log("MongoDB connected"))
