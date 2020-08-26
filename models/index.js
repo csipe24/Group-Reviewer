@@ -1,5 +1,5 @@
-// module.exports = {
-//   user: require("./user"),
-//   post: require("./post")
 
+module.exports = {
+  User: require("./user"),
+  Post: require("./post")
 // }
