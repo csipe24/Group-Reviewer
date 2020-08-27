@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Grommet, Header, Button, Menu, Select } from 'grommet';
 import { Home } from 'grommet-icons';
 
 function Navbar(){
         return ( 
             <Grommet plain>
-                <Header background="brand">
+                <Header background="brand" pad="small" gap="medium">
                 <Button icon={<Home/>}  href="/" hoverIndicator/>
                 <Select label= "Groups"
                 options={["Group 1" , "Group 2"]}

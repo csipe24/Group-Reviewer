@@ -11,7 +11,7 @@ const passport = require("passport");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// require("./models");
+require("./models");
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
@@ -32,7 +32,7 @@ app.get("*", function (req, res) {
 // swap database name when deploying to heroku
 mongoose
   .connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/groupreviewer',
+    process.env.MONGODB_URI || "mongodb://localhost/groupreviewer",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -45,3 +45,6 @@ mongoose
 app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
+// 'mongodb+srv://csipe24:chrissipe1@uwcodingbc.d3yqy.mongodb.net/UWCODINGBC?retryWrites=true&w=majority',
+    

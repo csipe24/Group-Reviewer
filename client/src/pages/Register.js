@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import api from "../utils/api";
 import { useLogin } from "../utils/auth";
+import RegisterForm from "../components/RegisterForm"
 
 function Register() {
   const nameInput = useRef();
@@ -20,32 +21,34 @@ function Register() {
 
     api
       .register({ name, email, password, password2 })
-      .then(console.log({name, email, password, password2}))
+      .then(console.log)
       .then(() => login({ email, password }))
       .then(() => (window.location.href = "./"));
   };
 
   return (
     <div>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="username" ref={nameInput} />
-        <input type="email" name="email" placeholder="email" ref={emailInput} />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          ref={passwordInput}
-        />
-        <input
-          type="password"
-          name="password2 "
-          placeholder="Retype password"
-          ref={password2Input}
-        />
-        <button>Submit</button>
-      </form>
+    <RegisterForm/>
     </div>
+     
+    //   <form onSubmit={handleSubmit}>
+    //     <input type="text" name="name" placeholder="username" ref={nameInput} />
+    //     <input type="email" name="email" placeholder="email" ref={emailInput} />
+    //     <input
+    //       type="password"
+    //       name="password"
+    //       placeholder="Password"
+    //       ref={passwordInput}
+    //     />
+    //     <input
+    //       type="password"
+    //       name="password2 "
+    //       placeholder="Retype password"
+    //       ref={password2Input}
+    //     />
+    //     <button>Submit</button>
+    //   </form>
+    // </div>
   );
 }
 
