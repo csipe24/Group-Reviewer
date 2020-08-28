@@ -4,15 +4,13 @@ import {Grid} from "grommet";
 function PageGrid(){
     return(
         <Grid
-        rows={['xxsmall', 'xsmall']}
-        columns={['xsmall', 'small']}
+        rows={['large', 'large']}
+        columns={['medium', 'medium']}
         gap="small"
         areas={[
-            { name: 'header', start: [0, 0], end: [1, 0] },
-            { name: 'nav', start: [0, 1], end: [0, 1] },
-            { name: 'main', start: [1, 1], end: [1, 1] },
+            { name: 'content', start: [0, 0], end: [1, 0] },
         ]}
-        ></Grid>
+        />
     )
 }
 
