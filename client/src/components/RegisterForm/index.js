@@ -9,27 +9,8 @@ function RegisterForm(){
     const [value, setValue] = React.useState('');
     const [reveal, setReveal] = React.useState(false);
 
-    // const userNameInput = useRef();
-    // const emailInput = useRef();
-    // const passwordInput = useRef();
-  
     const login = useLogin();
   
-    const handleSubmit = (e) => {
-    //   e.preventDefault();
-    //   const userName = userNameInput.current.value;
-    //   const email = emailInput.current.value;
-    //   const password = passwordInput.current.value;
-  
-    //   api
-    //     .register({ userName, email, password })
-    //     .then(console.log({ userName, email, password }))
-    //     .then(() => login({ email, password }))
-    //     .then(() => (window.location.href = "./"));
-
-        //    console.log('Submit', value, touched)
-         
-    };
 
         return ( 
             <Grommet plain>
@@ -42,13 +23,14 @@ function RegisterForm(){
             onSubmit={( {value} ) =>
              api.register({userName: value.userName, email:value.email, password:value.password})
              .then(console.log({userName: value.userName, email:value.email, password:value.password}))
-                .catch(e=>{console.log(e)})
+             .then(() => login({ email:value.email, password:value.password}))
+             .then(() => (window.location.href = "./"))
+             .catch(e=>{console.log(e)})
             }>
             <FormField
             placeholder="User Name"
             name="userName"
             required
-            // ref={userNameInput} 
             validate={[
               { regexp: /^[a-z]/i },
               name => {
@@ -77,7 +59,6 @@ function RegisterForm(){
             placeholder = "Password"
             type={reveal ? 'text' : 'password'}
             value={value}
-            // ref={passwordInput}
             onChange={event => setValue(event.target.value)}
             required
 

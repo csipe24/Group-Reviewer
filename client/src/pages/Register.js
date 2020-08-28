@@ -4,27 +4,27 @@ import { useLogin } from "../utils/auth";
 import RegisterForm from "../components/RegisterForm"
 
 function Register() {
-  const nameInput = useRef();
-  const emailInput = useRef();
-  const passwordInput = useRef();
-  const password2Input = useRef();
+//   // const nameInput = useRef();
+//   // const emailInput = useRef();
+//   // const passwordInput = useRef();
+//   // const password2Input = useRef();
 
-  const login = useLogin();
+//   // const login = useLogin();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+//   // const handleSubmit = (e) => {
+//   //   e.preventDefault();
 
-    const name = nameInput.current.value;
-    const email = emailInput.current.value;
-    const password = passwordInput.current.value;
-    const password2 = password2Input.current.value;
+//   //   const name = nameInput.current.value;
+//   //   const email = emailInput.current.value;
+//   //   const password = passwordInput.current.value;
+//   //   const password2 = password2Input.current.value;
 
-    api
-      .register({ name, email, password, password2 })
-      .then(console.log)
-      .then(() => login({ email, password }))
-      .then(() => (window.location.href = "./"));
-  };
+//     // api
+//     //   .register({ name, email, password, password2 })
+//     //   .then(console.log)
+//     //   .then(() => login({ email, password }))
+//     //   .then(() => (window.location.href = "./"));
+//   };
 
   return (
     <div>
