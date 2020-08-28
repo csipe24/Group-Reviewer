@@ -38,11 +38,10 @@ function App() {
           {/* <ContentContainer> */}
           <Box
             gridArea="main"
-            background="brand"
+            background="#7BE490"
             direction="column"
-            border={{ color: 'brand', size: 'large' }}
+            border={{ color: '#7BE490', size: 'large' }}
             pad="medium"
-            // align="center"
             alignSelf="center"
             margin="medium" 
             width={{min: "10%", max: "50%"}}

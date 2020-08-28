@@ -2,4 +2,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #DBF7E1;
+}
+
+.fkifru, .cICZre {
+  background-color: #7BE490 !important; /*This is the only way I could get this to render the color properly.*/
+}
+
+.hHCiZt, .hxHSmr{
+  color: #7D4CDB !important; /*A lot of these default Grommet styles load in after the index.css*/
+  stroke: #7D4CDB !important; /*So they end up overwriting a lot of what is put in here unless it's tagged !important*/
 }

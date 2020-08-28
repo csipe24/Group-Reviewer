@@ -10,7 +10,7 @@ function PageGrid(){
         areas={[
             { name: 'content', start: [0, 0], end: [1, 0] },
         ]}
-        ></Grid>
+        />
     )
 }
 
