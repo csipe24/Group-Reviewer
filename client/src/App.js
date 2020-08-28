@@ -23,11 +23,16 @@ function App() {
         <div>
           {/* <PageGrid> */} {/* PageGrid and ContentContainer elements not rendering correctly. Commented out until I can get them functioning properly. */}
           <Grid
-            rows={['flex', 'flex']}
-            columns={['xlarge', 'large']}
+          responsive="true"
+            rows={['flex']}
+            columns={['flex', 'flex', 'flex']}
             gap="small"
+            alignSelf="center"
+            justifyContent="stretch"
             areas={[
-            { name: 'main', start: [0, 0], end: [0, 0] },
+            { name: 'leftSpace', start: [0, 0], end: [0, 0] },
+            { name: 'main', start: [1, 0], end: [2, 0] },
+            { name: 'rightSpace', start: [0, 0], end: [0, 0] }
           ]}
           >
           {/* <ContentContainer> */}
@@ -37,7 +42,8 @@ function App() {
             direction="column"
             border={{ color: 'brand', size: 'large' }}
             pad="medium"
-            align="center"
+            // align="center"
+            alignSelf="center"
             margin="medium" 
             width={{min: "10%", max: "50%"}}
             >
