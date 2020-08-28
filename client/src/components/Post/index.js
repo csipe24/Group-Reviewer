@@ -2,11 +2,19 @@ import React from "react";
 import { Grommet, CardHeader, Box, Card, CardBody, CardFooter, Button} from "grommet";
 // import { useTodoContext } from "../utils/GlobalState";
 import { Favorite, ShareOption } from 'grommet-icons';
+import api from "../../utils/api";
 
 function Post() {
 //   const [state, dispatch] = useTodoContext();
+    function getAllPosts(){
+      api.getPosts()
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+    };
 
-  
+    getAllPosts();
+
+    
 
   return (
     <Grommet plain>
