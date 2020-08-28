@@ -21,7 +21,8 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use("/api", require("./routes/authController"));
+app.use("/authapi", require("./routes/authController"));
+app.use("/postapi", require("./routes/postController"));
 
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
