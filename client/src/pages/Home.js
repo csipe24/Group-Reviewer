@@ -1,4 +1,5 @@
 import React from 'react';
+import { backgroundImages } from 'polished';
 
 function Home(){
     return(
