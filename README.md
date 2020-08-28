@@ -27,7 +27,7 @@ npm install
 
 ![GPLv3 license](https://img.shields.io/badge/license-GPLv3-blue.svg)
 
-## Contribution [![GitHub contributors](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg?style=flat)](https://github.com/https://github.com/chrisjm093/med-handoff/edit/master/README.md/)
+## Contribution [![GitHub contributors](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg?style=flat)](https://github.com/csipe24/Group-Reviewer/blob/master/README.md)
 
 [Bunsan](https://github.com/bunsanphe)
 [Caleb](https://github.com/ICVRXS)
