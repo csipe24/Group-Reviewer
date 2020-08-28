@@ -2,7 +2,7 @@ import React from "react";
 // import { ListItem, List } from "../List";
 // import { Link } from "react-router-dom";
 // import { useStoreContext } from "../../utils/GlobalState";
-import Post from "../Post";
+import Post from "../PostList";
 import { Grommet, Heading, Box } from 'grommet';
 // import { Home } from 'grommet-icons';
 

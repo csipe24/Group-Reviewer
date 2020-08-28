@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Feed from "./pages/Feed";
 import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
+import {StoreProvider} from "./utils/GlobalState";
 
 import {Grid, Box} from "grommet";
 
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <StoreProvider>
       <Navbar/>
         <div>
           {/* <PageGrid> */} {/* PageGrid and ContentContainer elements not rendering correctly. Commented out until I can get them functioning properly. */}
@@ -54,6 +56,7 @@ function App() {
           {/* </PageGrid> */}
         </div>
       <PageFooter/>
+      </StoreProvider>
       </Router>
     </div>
   );
