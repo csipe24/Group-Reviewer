@@ -1,4 +1,6 @@
-# Final Project - Group Reviewer
+# Title
+
+Group Reviewer
 
 ## Description
 
@@ -8,22 +10,34 @@ This application will use a Mongo database, React JS and an express server.
 
 Since the application is deployed via Heroku, it allows users with an internet connection to use the appliciation on any web browser!
 
-## Usage
+# Table Of Contents
 
-App is open source and free to use.
+- [Title](Readme.md#title)
+- [Description](Readme.md#description)
+- [Installation](Readme.md#installation)
+- [Usage](Readme.md#contributing)
+- [Badges](Readme.md#license)
+- [Tests](Readme.md#tests)
 
 ## Installation
 
-## Contributors
+npm install
 
-Christopher Sipe
+## License
 
-Caleb Hay
+![GPLv3 license](https://img.shields.io/badge/license-GPLv3-blue.svg)
 
-Bunsan Phe
+## Contribution [![GitHub contributors](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg?style=flat)](https://github.com/csipe24/Group-Reviewer/blob/master/README.md)
 
-Niv
+[Bunsan](https://github.com/bunsanphe)
+[Caleb](https://github.com/ICVRXS)
+[Chris](https://github.com/csipe24)
+[Niv](https://github.com/Nivolving)
 
-## Built With
+## Tests
 
-Microsoft Visual Studio Code
+N/A
+
+## Usage
+
+N/A
