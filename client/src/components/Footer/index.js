@@ -1,6 +1,7 @@
 import React from "react";
 import { Footer, Button, Text, Grommet } from "grommet";
 import { Github } from "grommet-icons";
+import "./footer.css"
 
 function PageFooter() {
   return (
