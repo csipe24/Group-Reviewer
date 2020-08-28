@@ -4,6 +4,7 @@ import {Box} from "grommet";
 function ContentContainer(){
     return(
         <Box
+            gridArea="content"
             direction="column"
             border={{ color: 'brand', size: 'large' }}
             pad="medium"

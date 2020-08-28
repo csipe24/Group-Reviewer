@@ -23,7 +23,7 @@ function App() {
         <div>
           {/* <PageGrid> */} {/* PageGrid and ContentContainer elements not rendering correctly. Commented out until I can get them functioning properly. */}
           <Grid
-            rows={['medium', 'medium']}
+            rows={['flex', 'flex']}
             columns={['xlarge', 'large']}
             gap="small"
             areas={[
