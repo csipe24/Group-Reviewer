@@ -1,15 +1,20 @@
 import React from "react";
-import { Grommet, Footer, Anchor, Text } from 'grommet';
+import { Footer, Button, Text, Grommet } from "grommet";
+import { Github } from "grommet-icons";
 
-function PageFooter(){
-        return ( 
-            <Grommet plain>
-                <Footer background="brand" pad="medium" >
-                <Text>Group Reviewer</Text>
-                <Anchor label="Github" href="https://github.com/csipe24/Group-Reviewer"/>
-                </Footer>
-          </Grommet>
-        );
+function PageFooter() {
+  return (
+    <Grommet>
+      <Footer background="light-4" justify="center" pad="small">
+        <Text textAlign="center" size="medium">
+          <Button
+            icon={<Github />}
+            href="https://github.com/csipe24/Group-Reviewer"
+          />
+        </Text>
+      </Footer>
+    </Grommet>
+  );
 }
 
 export default PageFooter;

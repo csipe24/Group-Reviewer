@@ -5,7 +5,7 @@ import { Home } from 'grommet-icons';
 function Navbar(){
         return ( 
             <Grommet plain>
-                <Header background="brand" pad="small" gap="medium">
+                <Header background="light-4" pad="small" gap="medium">
                 <Button icon={<Home/>}  href="/" hoverIndicator/>
                 <Select label= "Groups"
                 options={["Group 1" , "Group 2"]}
