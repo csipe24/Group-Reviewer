@@ -1,7 +1,7 @@
 import React, {useRef} from "react";
 import { Grommet, Form, FormField, Box, Button, TextInput, TextArea, Heading } from 'grommet';
 // import api from "../../utils/api";
-// import { useIsAuthenticated } from "../../utils/auth";
+import { useIsAuthenticated } from "../../utils/auth";
 import { useLogin } from "../../utils/auth";
 
 function LoginForm() {
@@ -11,7 +11,8 @@ function LoginForm() {
 
   const login = useLogin();
 
-  const handleSubmit = ()=>{
+  const handleSubmit = (event)=>{
+      event.preventDefault();
       const email = emailRef.current.value;
       const password = passwordRef.current.value;
 
@@ -19,14 +20,13 @@ function LoginForm() {
       console.log(email);
       console.log(password);
 
-      login( { email, password } )
+      login( {email, password} )
       .then( userAuth => console.log( userAuth ))
       .then(window.location.href = "/feed")
       .catch( errors => errors );
 
       emailRef.current.value = "";
       passwordRef.current.value = "";
-  
   };
 
   return (

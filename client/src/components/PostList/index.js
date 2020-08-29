@@ -34,17 +34,17 @@ function PostList() {
     {state.posts.length ? (   
       <Box >
         {state.posts.map(post => (
-      <Card key={post._id}  width="medium" background="light-1" margin="medium" >
-      <CardHeader pad="small">{post.title}</CardHeader>
-      <CardHeader pad="small">{post.author}</CardHeader>
-      <CardBody pad="small">{post.body}</CardBody>
-      <CardFooter pad={{horizontal: "small"}} background="light-2">   
-      <Button
-      icon={<Favorite color="red" />}
-      hoverIndicator
-      />
-      </CardFooter>
-      </Card>
+        <Card key={post._id} width="medium" background="light-1" margin="medium" >
+          <CardHeader pad="small">{post.title}</CardHeader>
+          <CardHeader pad="small">{post.author}</CardHeader>
+          <CardBody pad="small">{post.body}</CardBody>
+          <CardFooter pad={{horizontal: "small"}} background="light-2">   
+          <Button
+          icon={<Favorite color="red" />}
+          hoverIndicator
+          />
+          </CardFooter>
+        </Card>
     ))}
     </Box>
     ) : (

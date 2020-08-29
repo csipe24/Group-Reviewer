@@ -6,7 +6,7 @@ import Post from "../PostList";
 import { Grommet, Heading, Box } from 'grommet';
 // import { Home } from 'grommet-icons';
 
-function PostsList() {
+function FeedList() {
 //   const [state, dispatch] = useStoreContext();
 
   return (
@@ -19,4 +19,4 @@ function PostsList() {
   );
 }
 
-export default PostsList;
+export default FeedList;
