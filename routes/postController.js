@@ -23,9 +23,10 @@ router.get("/getPosts", (req, res) => {
 })
 
 router.delete("/getPosts/:id", (req, res) => {
-  Post.destory({where: {id: req.params.id}}
+  Post.findById({_id: req.params.id})
+    .then(postModel => postModel.remove())
     .then(req => {res.json(req)})
-    .catch(err => res.status(422).json(err)))
+    .catch(err => res.status(422).json(err))
 })
 
 
