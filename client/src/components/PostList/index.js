@@ -27,8 +27,15 @@ function PostList() {
     getAllPosts();
   }, []);
 
-  const removePost = () => {
+  const removePost = (id) => {
     console.log("test remove")
+    console.log(id)
+    api.removePost(id).then( () => {
+      dispatch({
+        type: REMOVE_POST,
+        _id: id
+      })
+    })  .catch(err => console.log(err));
   }
 
 
@@ -48,7 +55,7 @@ function PostList() {
       hoverIndicator
       />
       <Button
-      primary label="Delete" onClick={removePost}
+      primary label="Delete" onClick={() => removePost(post._id)}
       />
       </CardFooter>
       </Card>
