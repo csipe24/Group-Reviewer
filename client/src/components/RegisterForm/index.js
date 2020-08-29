@@ -21,9 +21,8 @@ function RegisterForm(){
             <Form
             onReset={event => console.log(event)}
             onSubmit={( {value} ) =>
-             api.register({userName: value.userName, email:value.email, password:value.password})
-             .then(console.log({userName: value.userName, email:value.email, password:value.password}))
-             .then(() => login({ email:value.email, password:value.password}))
+             api.register( {userName: value.userName, email:value.email, password:value.password} )
+             .then( () => login({ email:value.email, password:value.password } ) )
              .then(() => (window.location.href = "./"))
              .catch(e=>{console.log(e)})
             }>

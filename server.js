@@ -8,10 +8,12 @@ const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
 
+require("./models");
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-require("./models");
+
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
