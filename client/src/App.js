@@ -12,11 +12,14 @@ import {StoreProvider} from "./utils/GlobalState";
 
 import {Grid, Box} from "grommet";
 
+import { useIsAuthenticated } from "./utils/auth";
+
 import PageGrid from "./components/PageGrid";
 import ContentContainer from "./components/ContentContainer";
 
 function App() {
   useAuthTokenStore();
+  const isAuth = useIsAuthenticated();
   return (
     <div className="App">
       <Router>
@@ -49,9 +52,12 @@ function App() {
             width={{min: "10%", max: "50%"}}
             >
             <Switch>
-              <Route exact path="/" component={Home}/>
+              {isAuth
+              ?<Route exact path="/" component={Home}/>
+              :<Route exact path="/" component={Login}/>
+              }
+              
               <Route exact path="/register" component={Register}/>
-              <Route exact path="/login" component={Login}/>
               <Route exact path="/feed" component={Feed}/>
               <Route component={NoMatch} />
             </Switch>

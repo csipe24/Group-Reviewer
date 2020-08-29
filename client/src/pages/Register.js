@@ -9,7 +9,6 @@ function Register() {
     <div>
     <RegisterForm/>
     </div>
-
   );
 }
 
