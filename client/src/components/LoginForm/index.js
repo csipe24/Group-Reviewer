@@ -13,16 +13,15 @@ function LoginForm() {
 
   const handleSubmit = (event)=>{
       event.preventDefault();
-      const email = emailRef.current.value;
-      const password = passwordRef.current.value;
+      const loginEmail = emailRef.current.value;
+      const loginPassword = passwordRef.current.value;
 
       console.log("Submit");
-      console.log(email);
-      console.log(password);
+      console.log(loginEmail);
+      console.log(loginPassword);
 
-      login( {email, password} )
+      login( {email: loginEmail, password: loginPassword} )
       .then( userAuth => console.log( userAuth ))
-      .then(window.location.href = "/feed")
       .catch( errors => errors );
 
       emailRef.current.value = "";
