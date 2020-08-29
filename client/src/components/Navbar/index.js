@@ -1,8 +1,10 @@
 import React from "react";
 import { Grommet, Header, Button, Menu, Select } from 'grommet';
 import { Home } from 'grommet-icons';
+import {useIsAuthenticated, useLogout} from "../../utils/auth"
 
 function Navbar(){
+  const logout = useLogout();
         return ( 
             <Grommet plain>
                 <Header background="light-4" pad="small" gap="medium">
@@ -14,7 +16,7 @@ function Navbar(){
                 />
                 <Menu label="Menu" items={[
                   { label: 'Register', href: "/register"}, 
-                  { label: 'Logout', href: "" }, 
+                  { label: 'Logout', onClick: ()=>{logout()}}, 
                   { label: "Post", href:"/feed" }]} />
                 </Header>
           </Grommet>

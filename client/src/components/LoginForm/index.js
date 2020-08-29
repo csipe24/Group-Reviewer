@@ -74,3 +74,18 @@ function LoginForm() {
 }
 
 export default LoginForm;
+
+
+// function Home(){
+//   const isAuth = useIsAuthenticated();
+//   const logout = useLogout();
+
+//   return(
+//       <div>
+//       <pageHeader/>
+
+//       <h1>Home!</h1>
+
+//       {isAuth
+//       ?<button onClick={logout}>Logout</button>
+//       :<a href="/login">Login</a>}
