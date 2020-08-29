@@ -12,7 +12,10 @@ function Navbar(){
                 // value={value}
                 // onChange={({ option }) => setValue(option)}
                 />
-                <Menu label="Menu" items={[{ label: 'Register', href: "/register"}, { label: 'Logout', href: "" }]} />
+                <Menu label="Menu" items={[
+                  { label: 'Register', href: "/register"}, 
+                  { label: 'Logout', href: "" }, 
+                  { label: "Post", href:"/feed" }]} />
                 </Header>
           </Grommet>
         );
