@@ -8,7 +8,7 @@ Welcome to the Group Reviewer App! This is a great open source application to th
 
 This application will use a Mongo database, React JS and an express server.
 
-Since the application is deployed via Heroku, it allows users with an internet connection to use the appliciation on any web browser!
+Since the application is deployed via Heroku, it allows users with an internet connection to use the application on any web browser!
 
 # Table Of Contents
 
