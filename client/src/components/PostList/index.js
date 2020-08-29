@@ -27,6 +27,10 @@ function PostList() {
     getAllPosts();
   }, []);
 
+  const removePost = () => {
+    console.log("test remove")
+  }
+
 
   return (
     <Grommet plain>
@@ -42,6 +46,9 @@ function PostList() {
       <Button
       icon={<Favorite color="red" />}
       hoverIndicator
+      />
+      <Button
+      primary label="Delete" onClick={removePost}
       />
       </CardFooter>
       </Card>

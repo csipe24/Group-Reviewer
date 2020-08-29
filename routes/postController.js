@@ -22,5 +22,11 @@ router.get("/getPosts", (req, res) => {
         .catch(err => res.status(422).json(err));
 })
 
+router.delete("/getPosts/:id", (req, res) => {
+  Post.destory({where: {id: req.params.id}}
+    .then(req => {res.json(req)})
+    .catch(err => res.status(422).json(err)))
+})
+
 
 module.exports = router;
