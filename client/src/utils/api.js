@@ -24,6 +24,10 @@ export default {
 
     getPosts(){
         return axios.get("/postapi/getPosts");
+    },
+
+    removePost(id){
+        return axios.delete("/postapi/getPosts/"+ id);
     }
 
 }
