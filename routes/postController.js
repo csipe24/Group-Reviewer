@@ -17,7 +17,10 @@ router.post("/newPost", (req, res) => {
 })
 
 router.get("/getPosts", (req, res) => {
-
+  //testing
+  // Post.findAll().then(post => {
+  //   res.json(post)
+  // })
     
 })
 

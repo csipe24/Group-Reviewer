@@ -1,12 +1,10 @@
 import React, {useRef} from "react";
-import api from "../utils/api";
 import { useLogin } from "../utils/auth";
 
 function Login(){
     
     const emailInput = useRef();
     const passwordInput = useRef();
-    const password2Input = useRef();
 
     const login = useLogin();
 
@@ -19,7 +17,9 @@ function Login(){
         const password = passwordInput.Input.current.value;
 
         login( { email, password } )
-        .then( userAuth => console.log( userAuth ))
+        .then( userAuth => {
+            console.log( userAuth )
+            window.location.href = "/"})
         .catch( errors => errors );
     };
 
