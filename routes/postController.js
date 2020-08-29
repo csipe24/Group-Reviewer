@@ -17,8 +17,10 @@ router.post("/newPost", (req, res) => {
 })
 
 router.get("/getPosts", (req, res) => {
-
-    
+        Post.find(req.query)
+        .then(req => {res.json(req)})
+        .catch(err => res.status(422).json(err));
 })
+
 
 module.exports = router;

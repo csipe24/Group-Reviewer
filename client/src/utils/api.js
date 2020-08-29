@@ -22,7 +22,7 @@ export default {
         return axios.post("/postapi/newPost", postData);
     },
 
-    getPost(){
+    getPosts(){
         return axios.get("/postapi/getPosts");
     }
 

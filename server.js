@@ -16,7 +16,6 @@ require("./models");
 app.use(passport.initialize());
 require("./config/passport")(passport);
 
-// Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
@@ -29,7 +28,6 @@ app.get("*", function (req, res) {
 });
 
 // Connect to the Mongo DB
-
 // swap database name when deploying to heroku
 mongoose
   .connect(
