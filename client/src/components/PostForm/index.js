@@ -14,8 +14,6 @@ function PostForm() {
 
   const [author, setAuthor] = useState();
 
-  
-
     const getUser = () =>{
       api.authenticated()
       .then(res => {
@@ -52,8 +50,8 @@ function PostForm() {
 
   return (
     <Grommet theme={{global: {colors:{doc: "#9370DB"}}}}>
-      <Box direction="row" justify="center" margin={{ top: 'medium' }}>
-      <Heading justify="center" size="medium">Group x</Heading>
+      <Box direction="row"  margin={{ top: 'medium' }}>
+      <Heading textAlign="center" level="2" size="medium">Food Lover Group</Heading>
       </Box>
 
         <Box direction="row" justify="center" margin={{ top: 'medium' }}>

@@ -1,8 +1,8 @@
 import React from "react";
 import { Grommet, Box, Header, Button, Menu, Select } from 'grommet';
-import { Home } from 'grommet-icons';
+import { Home, Help } from 'grommet-icons';
 import {useIsAuthenticated, useLogout} from "../../utils/auth"
-import UserProfileInfo from "../UserProfileInfo";
+import UserInfo from "../UserProfileInfoGlobal";
 
 function Navbar(){
   const logout = useLogout();
@@ -10,8 +10,10 @@ function Navbar(){
         return ( 
             <Grommet plain>
                 <Header background="light-4" pad="small" gap="medium">
-                
-                <UserProfileInfo/>
+                {isAuth ? (
+                <UserInfo/>) : (
+                  <Button href="/help"><Help /></Button>
+                )}
                 {/* <Select label= "Groups"
                 options={["Group 1" , "Group 2"]}
                 // value={value}

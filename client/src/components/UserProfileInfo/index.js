@@ -11,6 +11,7 @@ function UserInfo(){
 
   const getUser = () =>{
     api.authenticated()
+    // .then(res => {console.log(res.data)})
     .then(res => {
       setUserInfo(res.data.userName);
     })

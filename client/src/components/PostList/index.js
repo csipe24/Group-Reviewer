@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { Grommet, CardHeader, Box, Card, CardBody, CardFooter, Button, Heading, List} from "grommet";
+import { Grommet, CardHeader, Box, Card, CardBody, CardFooter, Button, Heading, Meter} from "grommet";
 import { useStoreContext } from "../../utils/GlobalState";
 import { Favorite, ShareOption } from 'grommet-icons';
 import api from "../../utils/api";
@@ -18,8 +18,7 @@ function PostList() {
           posts: results.data
         });
       })
-      .then(console.log("Testing"))
-      .then(console.log(state.posts))
+      // .then(console.log("Testing"))
       .catch(err => console.log(err));
   };
 
@@ -44,16 +43,23 @@ function PostList() {
       <Box>
     {state.posts.length ? (   
       <Box >
-        {state.posts.map(post => (
+        {state.posts.slice(0).reverse().map(post => (
       <Card key={post._id}  width="medium" background="light-1" margin="medium" >
-      <CardHeader pad="small">{post.title}</CardHeader>
-      <CardHeader pad="small">{post.author}</CardHeader>
+      <CardHeader pad="small">Title:{post.title}</CardHeader>
+      <CardHeader pad="small">Member:{post.author}</CardHeader>
       <CardBody pad="small">{post.body}</CardBody>
-      <CardFooter pad={{horizontal: "small"}} background="light-2">   
+      <CardFooter pad={{horizontal: "medium"}} background="light-2">   
       <Button
       icon={<Favorite color="red" />}
       hoverIndicator
-      />
+      /> 
+        <Meter
+          type="bar"
+          background="status-critical"
+          values={[{value: (post.title.length * (Math.random() + 1)), label: "Percentage"}]}
+          round="true"
+        />
+   
       <Button
       primary label="Delete" onClick={() => removePost(post._id)}
       />

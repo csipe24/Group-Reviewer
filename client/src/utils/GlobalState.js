@@ -33,7 +33,7 @@ const reducer = (state, action) => {
   case ADD_POST:
     return {
       ...state,
-      posts: [action.post, ...state.posts],
+      posts: [...state.posts, action.post],
       loading: false
     };
 
@@ -51,7 +51,6 @@ const reducer = (state, action) => {
         user: action.user,
         loading: false
       };
-  
 
   // case ADD_FAVORITE:
   //   return {
@@ -96,7 +95,12 @@ const StoreProvider = ({ value = [], ...props }) => {
       author: ""
     },
     favorites: [],
-    user: [],
+    user: {
+      date: "",
+      email: "",
+      password: "",
+      userName: ""
+    },
     loading: false
   });
 
