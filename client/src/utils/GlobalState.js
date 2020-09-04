@@ -110,7 +110,7 @@ const StoreProvider = ({ value = [], ...props }) => {
       userName: ""
     },
     newGroup: {
-      name: "",
+      groupName: "",
       owner: "",
       users: "",
     },

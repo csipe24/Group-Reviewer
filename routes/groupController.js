@@ -7,7 +7,9 @@ const {Group} = require("../models")
 router.post("/newGroup", (req, res) => {
 
     const newGroup = new Group({
-        groupName: req.body.groupName
+        groupName: req.body.groupName,
+        owner: req.body.owner,
+        users: req.body.users
       });
 
       newGroup.save().then(group => res.json(group))
