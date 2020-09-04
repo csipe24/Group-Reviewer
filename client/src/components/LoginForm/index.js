@@ -29,7 +29,7 @@ function LoginForm() {
   };
 
   return (
-    <Grommet theme={{global: {colors:{doc: "#9370DB"}}}}>
+    <Grommet theme={{global: {colors:{doc: "#CCCCCC"}}}}>
         <Box direction="row" justify="center" margin={{ top: 'medium' }}>
         <Heading justify="center" size="small">Login</Heading>
         </Box>
@@ -63,8 +63,8 @@ function LoginForm() {
             </FormField>
             </Box>
             <Box direction="row" justify="center" gap="medium">
-            <Button type="submit" primary label="Login" />
-            <Button type="reset" label="Register" href="/register"/>
+            <Button type="submit" primary label="Login" color="#00739D" />
+            <Button type="reset" label="Register" href="/register" color="#00739D"/>
             </Box>
           </Form>
       </Box>

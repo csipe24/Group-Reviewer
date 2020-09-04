@@ -49,14 +49,10 @@ function PostForm() {
   
 
   return (
-    <Grommet theme={{global: {colors:{doc: "#9370DB"}}}}>
+    <Grommet theme={{global: {colors:{doc: "#CCCCCC"}}}}>
       <Box direction="row"  margin={{ top: 'medium' }}>
       <Heading textAlign="center" level="2" size="medium">Food Lover Group</Heading>
       </Box>
-
-        <Box direction="row" justify="center" margin={{ top: 'medium' }}>
-        <Heading justify="center" size="small">New Post</Heading>
-        </Box>
 
         <Box direction="row" justify="center" background="doc" margin={{ top: 'medium' }}>
           <Form onReset={event => console.log(event)} onSubmit= {handleSubmit}>
@@ -83,8 +79,8 @@ function PostForm() {
             </FormField>
             </Box>
             <Box direction="row" justify="center" gap="medium">
-            <Button type="submit" primary label="Submit" />
-            <Button type="reset" label="Reset" />
+            <Button type="submit" primary label="Submit" color="#00739D"/>
+            <Button type="reset" label="Reset" color="#00739D" />
             </Box>
           </Form>
       </Box>

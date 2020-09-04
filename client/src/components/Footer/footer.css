@@ -1,7 +1,11 @@
 Footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 3rem;
     /* Footer height */
+}
+
+.jXwebn {
+    fill: #00739D !important;
 }
