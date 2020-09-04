@@ -9,9 +9,9 @@ function Navbar(){
   const isAuth = useIsAuthenticated();
         return ( 
             <Grommet plain>
-                <Header background="light-4" pad="small" gap="medium">
+                <Header background="#FFAA15" pad="small" gap="medium">
                 {isAuth ? (
-                <UserInfo/>) : (
+                <UserInfo />) : (
                   <Button href="/help"><Help /></Button>
                 )}
                 {/* <Select label= "Groups"
@@ -19,6 +19,8 @@ function Navbar(){
                 // value={value}
                 // onChange={({ option }) => setValue(option)}
                 /> */}
+                <h1>myCircle</h1>
+
                 <Box direction="row">
                 {isAuth ? (
                 <Menu align="right" label="Menu" items={[ 
@@ -31,10 +33,9 @@ function Navbar(){
                   {label:"Register", href:"/register" },
                   {label:'Login', href:"/login"}
                   ]}
-                />)}
-               
+                />)}               
 
-                <Button icon={<Home/>}  href="/" hoverIndicator/>
+                <Button icon={<Home/>}  href="/" hoverIndicator color="#00739D"/>
                 </Box>
                 </Header>
           </Grommet>

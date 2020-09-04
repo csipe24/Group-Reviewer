@@ -71,8 +71,8 @@ function RegisterForm(){
         
             
             <Box direction="row" justify="between" margin={{ top: 'medium' }}>
-            <Button label="Cancel" type="reset"/>
-            <Button type="submit" label="Submit" />
+            <Button label="Cancel" type="reset" color="#00739D" />
+            <Button type="submit" label="Submit" color="#00739D" />
 
             </Box>
             </Form>

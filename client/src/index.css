@@ -2,19 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #DBF7E1;
+  background-color: #ffffff;
 }
 
 h1, h2, h3, p, a, form, span {
   color: white;
-}
-
-.StyledBox-sc-13pk1d4-0 {
-  background-color: #7BE490 !important; /*This is the only way I could get this to render the color properly.*/
-}
-
-.hHCiZt, .hxHSmr, .StyledIcon-ofa7kd-0{
-  color: #7D4CDB !important; /*A lot of these default Grommet styles load in after the index.css*/
-  stroke: #7D4CDB !important; /*So they end up overwriting a lot of what is put in here unless it's tagged !important*/
-  fill:  #7D4CDB !important; /*I tried styling each component with its own individual stylesheet and it still did not take*/
 }

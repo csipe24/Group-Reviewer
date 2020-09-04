@@ -12,7 +12,7 @@ function FeedList() {
   return (
     <Grommet plain>
     <Box direction="row" justify="center" margin={{ top: 'medium' }}>
-         <Heading>Feed</Heading>
+         <Heading>Newest Posts</Heading>
          </Box>
       <Post/>
       </Grommet>
