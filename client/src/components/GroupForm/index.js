@@ -1,34 +1,22 @@
-import React, {useRef, useState} from "react";
+import React, {useRef} from "react";
 import { Grommet, Form, FormField, Box, Button, TextInput, TextArea, Heading } from 'grommet';
 import api from "../../utils/api";
 import { SET_GROUP_NAME } from "../../utils/actions";
 import { useStoreContext } from "../../store";
-import { useIsAuthenticated } from "../../utils/auth";
+
 
 
 function GroupForm(){
     const groupNameRef = useRef();
-    const [state, dispatch] = useStoreContext();
+    const [, dispatch] = useStoreContext();
     
-    const [author, setAuthor] = useState();
 
-    const getUser = () =>{
-      api.authenticated()
-      .then(res => {
-        setAuthor(res.data.userName);
-      })
-        .catch(err => console.log(err));
-      }
-
-    getUser();
 
     const handleSubmit = e => {
         e.preventDefault();
         // dispatch({ type: LOADING });
         api.newGroup({
           groupName: groupNameRef.current.value,
-          owner: author,
-          users: author
         })
           .then(result => {
             dispatch({
