@@ -27,11 +27,11 @@ app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// Connect to the Mongo DB
-// swap database name when deploying to heroku
+const MONGODB_URI = "mongodb+srv://dbProject3User1:nvw6dPTlHVqKkCiy@cluster0.obrsd.mongodb.net/groupreviewer?retryWrites=true&w=majority"
+
 mongoose
   .connect(
-    process.env.MONGODB_URI || "mongodb://localhost/groupreviewer",
+    MONGODB_URI || "mongodb://localhost/groupreviewer",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
