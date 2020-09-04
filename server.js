@@ -29,9 +29,12 @@ app.get("*", function (req, res) {
 
 const MONGODB_URI = "mongodb+srv://dbProject3User1:nvw6dPTlHVqKkCiy@cluster0.obrsd.mongodb.net/groupreviewer?retryWrites=true&w=majority"
 
+
+// || "mongodb://localhost/groupreviewer"
+
 mongoose
   .connect(
-    MONGODB_URI || "mongodb://localhost/groupreviewer",
+    MONGODB_URI ,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
