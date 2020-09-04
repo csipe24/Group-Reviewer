@@ -15,6 +15,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  groups: [{
+    type: Schema.Types.ObjectId,
+    ref: "groups"
+  }],
   date: {
     type: Date,
     default: Date.now

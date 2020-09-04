@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 import { Grommet, Form, FormField, Box, Button, TextInput, TextArea, Heading } from 'grommet';
 import { useStoreContext } from "../../store";
 import api from "../../utils/api";
@@ -7,14 +7,22 @@ import { ADD_POST } from "../../utils/actions";
 
 
 function PostForm() {
-
+  const isAuth = useIsAuthenticated();
   const titleRef = useRef();
   const bodyRef = useRef();
   const [state, dispatch] = useStoreContext();
 
-  // JWT decode
+  const [author, setAuthor] = useState();
 
-  // Login Route, Token REST of Data
+    const getUser = () =>{
+      api.authenticated()
+      .then(res => {
+        setAuthor(res.data.userName);
+      })
+        .catch(err => console.log(err));
+      }
+
+    getUser();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -22,7 +30,7 @@ function PostForm() {
     api.newPost({
       title: titleRef.current.value,
       body: bodyRef.current.value,
-      author: "test"
+      author: author
     })
       .then(result => {
         dispatch({
@@ -34,12 +42,16 @@ function PostForm() {
 
     titleRef.current.value = "";
     bodyRef.current.value = "";
+
+
   };
+
+  
 
   return (
     <Grommet theme={{global: {colors:{doc: "#9370DB"}}}}>
-      <Box direction="row" justify="center" margin={{ top: 'medium' }}>
-      <Heading justify="center" size="medium">Group x</Heading>
+      <Box direction="row"  margin={{ top: 'medium' }}>
+      <Heading textAlign="center" level="2" size="medium">Food Lover Group</Heading>
       </Box>
 
         <Box direction="row" justify="center" margin={{ top: 'medium' }}>
