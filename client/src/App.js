@@ -9,6 +9,7 @@ import Feed from "./pages/Feed";
 import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import {StoreProvider} from "./utils/GlobalState";
+import GroupForm from "./components/GroupForm";
 
 import {Grid, Box} from "grommet";
 
@@ -59,6 +60,7 @@ function App() {
               
               <Route exact path="/register" component={Register}/>
               <Route exact path="/feed" component={Feed}/>
+              <Route exact path="/group" component={GroupForm}/>
               <Route component={NoMatch} />
             </Switch>
             </Box >

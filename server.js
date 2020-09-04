@@ -22,6 +22,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use("/authapi", require("./routes/authController"));
 app.use("/postapi", require("./routes/postController"));
+app.use("/groupapi", require("./routes/groupController"));
 
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
@@ -29,12 +30,9 @@ app.get("*", function (req, res) {
 
 const MONGODB_URI = "mongodb+srv://dbProject3User1:nvw6dPTlHVqKkCiy@cluster0.obrsd.mongodb.net/groupreviewer?retryWrites=true&w=majority"
 
-
-// || "mongodb://localhost/groupreviewer"
-
 mongoose
   .connect(
-    MONGODB_URI ,
+    MONGODB_URI || "mongodb://localhost/groupreviewer",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
