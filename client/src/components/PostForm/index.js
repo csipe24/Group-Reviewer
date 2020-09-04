@@ -30,7 +30,9 @@ function PostForm() {
     api.newPost({
       title: titleRef.current.value,
       body: bodyRef.current.value,
-      author: author
+      author: author,
+      likes: 0,
+      dislikes: 0
     })
       .then(result => {
         dispatch({

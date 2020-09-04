@@ -5,7 +5,6 @@ const router = express.Router();
 const {Post} = require("../models");
 
 router.post("/newPost", (req, res) => {
-
     const newPost = new Post({
         title: req.body.title,
         author: req.body.author,
@@ -14,6 +13,12 @@ router.post("/newPost", (req, res) => {
 
       newPost.save().then(user => res.json(user))
       .catch(err => console.log(err));
+})
+
+router.post("/updatePost", (req, res) => {
+  Post.findOneAndUpdate({ _id: req.params.id }, req.body)
+  .then(dbModel => res.json(dbModel))
+  .catch(err => res.status(422).json(err));
 })
 
 router.get("/getPosts", (req, res) => {

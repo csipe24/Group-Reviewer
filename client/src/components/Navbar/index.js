@@ -31,7 +31,7 @@ function Navbar(){
                 ) : (
                 <Menu align="right" label="Menu" items={[ 
                   {label:"Register", href:"/register" },
-                  {label:'Login', href:"/login"}
+                  {label:'Login', href:"/"}
                   ]}
                 />)}               
 
