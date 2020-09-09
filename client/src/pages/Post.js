@@ -7,9 +7,6 @@ function Post() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
-  const postTitle = useRef();
-  const postBody = useRef();
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -22,11 +19,11 @@ function Post() {
   const handleSubmit = (e) => {
     e.preventDefault();
     api
-      .updatePost(id)
+      .updatePost(id, {title, body})
       .then((res) => {
         console.log(res);
       })
-      .catch((err) => {});
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -48,7 +45,7 @@ function Post() {
               setTitle(e.target.value);
             }}
             name="title"
-            ref={postTitle}
+   
           />
         </FormField>
       </Box>
@@ -60,7 +57,7 @@ function Post() {
             onChange={(e) => {
               setBody(e.target.value);
             }}
-            ref={postBody}
+         
           />
         </FormField>
       </Box>
