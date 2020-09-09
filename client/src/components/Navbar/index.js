@@ -29,11 +29,7 @@ function Navbar(){
                 ]}
                 />
                 ) : (
-                <Menu align="right" label="Menu" items={[ 
-                  {label:"Register", href:"/register" },
-                  {label:'Login', href:"/login"}
-                  ]}
-                />)}               
+                <div />)}
 
                 <Button icon={<Home/>}  href="/" hoverIndicator color="#00739D"/>
                 </Box>
