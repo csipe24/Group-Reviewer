@@ -51,8 +51,6 @@ function PostList() {
       <CardBody pad="small">{post.body}</CardBody>
       <CardFooter pad={{horizontal: "medium"}} background="light-2">   
       <VotingBar/> 
-  
-   
       <Button
       primary label="Delete" onClick={() => removePost(post._id)}
       />

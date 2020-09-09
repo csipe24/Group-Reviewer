@@ -45,6 +45,3 @@ mongoose
 app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
-
-// 'mongodb+srv://csipe24:chrissipe1@uwcodingbc.d3yqy.mongodb.net/UWCODINGBC?retryWrites=true&w=majority',
-    
