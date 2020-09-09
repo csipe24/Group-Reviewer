@@ -9,7 +9,9 @@ import {
   // REMOVE_FAVORITE,
   LOADING,
   USER_INFO,
-  SET_GROUP_NAME
+  SET_GROUP_NAME,
+  GET_GROUP,
+  REMOVE_GROUP
 } from "./actions";
 
 const StoreContext = createContext();
@@ -58,7 +60,22 @@ const reducer = (state, action) => {
         ...state,
         groupName: [...state.groups, action.postGroup],
         loading: false
+      };
+
+    case GET_GROUP:
+      return{
+        ...state,
+        groups: [...action.groups],
+        loading: false
       }
+
+    case REMOVE_GROUP:
+    return {
+      ...state,
+      groupName: state.groups.filter((group) => {
+        return group._id !== action._id; 
+      })
+    };
 
   // case ADD_FAVORITE:
   //   return {

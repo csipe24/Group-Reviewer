@@ -32,6 +32,10 @@ export default {
 
     newGroup(groupData){
         return axios.post("/groupapi/newGroup", groupData)
+    },
+
+    getGroups(){
+        return axios.get("/groupapi/getGroups");
     }
 
 }
