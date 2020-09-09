@@ -9,13 +9,9 @@ import Feed from "./pages/Feed";
 import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import {StoreProvider} from "./utils/GlobalState";
-
 import {Grid, Box} from "grommet";
-
 import { useIsAuthenticated } from "./utils/auth";
-
-import PageGrid from "./components/PageGrid";
-import ContentContainer from "./components/ContentContainer";
+import Post from "./pages/Post";
 
 function App() {
   useAuthTokenStore();
@@ -59,6 +55,7 @@ function App() {
               
               <Route exact path="/register" component={Register}/>
               <Route exact path="/feed" component={Feed}/>
+              <Route exact path="/feed/:id" component={Post}/>
               <Route component={NoMatch} />
             </Switch>
             </Box >
