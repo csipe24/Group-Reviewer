@@ -1,7 +1,7 @@
 import React from 'react';
 import { backgroundImages } from 'polished';
-import UserInfo from '../components/UserProfileInfo';
 import UserInfoGlobal from '../components/UserProfileInfoGlobal';
+import GroupForm from "../components/GroupForm";
 
 function Home(){
     return(
@@ -9,6 +9,7 @@ function Home(){
             <h1>Home Page</h1>
             <h1>Welcome to the Group Reviewer!</h1>
             <UserInfoGlobal/>
+            <GroupForm/>
         </div>
     )
 }

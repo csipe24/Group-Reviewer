@@ -8,7 +8,8 @@ import {
   // UPDATE_FAVORITES,
   // REMOVE_FAVORITE,
   LOADING,
-  USER_INFO
+  USER_INFO,
+  SET_GROUP_NAME
 } from "./actions";
 
 const StoreContext = createContext();
@@ -51,6 +52,13 @@ const reducer = (state, action) => {
         user: action.user,
         loading: false
       };
+
+    case SET_GROUP_NAME:
+      return {
+        ...state,
+        groupName: [...state.groups, action.postGroup],
+        loading: false
+      }
 
   // case ADD_FAVORITE:
   //   return {
@@ -100,6 +108,11 @@ const StoreProvider = ({ value = [], ...props }) => {
       email: "",
       password: "",
       userName: ""
+    },
+    newGroup: {
+      groupName: "",
+      owner: "",
+      users: "",
     },
     loading: false
   });

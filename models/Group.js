@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const GroupSchema = new Schema({
-name: {
+groupName: {
     type:String, 
     required: true
 },
@@ -16,7 +16,8 @@ users: [{
 }],
 });
 
-module.exports = Group = mongoose.model("groups", GroupSchema);
+const Group = mongoose.model("groups", GroupSchema);
+module.exports = Group;
 
 // Groups ID gets added to user
 // User ID gets added to Group

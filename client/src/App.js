@@ -9,6 +9,7 @@ import Feed from "./pages/Feed";
 import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import {StoreProvider} from "./utils/GlobalState";
+import GroupForm from "./components/GroupForm";
 
 import {Grid, Box} from "grommet";
 
@@ -36,7 +37,7 @@ function App() {
             justifyContent="stretch"
             areas={[
             { name: 'leftSpace', start: [0, 0], end: [0, 0] },
-            { name: 'main', start: [1, 0], end: [2, 0] },
+            { name: 'main', start: [0, 0], end: [2, 0] },
             { name: 'rightSpace', start: [0, 0], end: [0, 0] }
           ]}
           >
@@ -45,7 +46,8 @@ function App() {
             gridArea="main"
             background="#CCCCCC"
             direction="column"
-            pad="medium"
+            pad="none"
+            margin="none"
             alignSelf="center"
             margin="medium" 
             width={{min: "10%", max: "50%"}}
@@ -58,6 +60,7 @@ function App() {
               
               <Route exact path="/register" component={Register}/>
               <Route exact path="/feed" component={Feed}/>
+              <Route exact path="/group" component={GroupForm}/>
               <Route component={NoMatch} />
             </Switch>
             </Box >

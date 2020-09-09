@@ -28,6 +28,10 @@ export default {
 
     removePost(id){
         return axios.delete("/postapi/getPosts/"+ id);
+    },
+
+    newGroup(groupData){
+        return axios.post("/groupapi/newGroup", groupData)
     }
 
 }
