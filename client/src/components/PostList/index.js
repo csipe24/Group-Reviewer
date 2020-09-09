@@ -62,6 +62,7 @@ function PostList() {
    
       <Button
       primary label="Delete" onClick={() => removePost(post._id)}
+      color="#00739D"
       />
       </CardFooter>
       </Card>
