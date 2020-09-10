@@ -14,10 +14,6 @@ import {
   SET_GROUP_NAME,
   GET_GROUP,
   REMOVE_GROUP
-
-  SET_GROUP_NAME
-  
-
 } from "./actions";
 
 const StoreContext = createContext();
