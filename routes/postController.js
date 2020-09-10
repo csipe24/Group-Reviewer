@@ -15,16 +15,17 @@ router.post("/newPost", (req, res) => {
       .catch(err => console.log(err));
 })
 
-router.post("/updatePost", (req, res) => {
-  Post.findOneAndUpdate({ _id: req.params.id }, req.body)
-  .then(dbModel => res.json(dbModel))
-  .catch(err => res.status(422).json(err));
-})
 
 router.get("/getPosts", (req, res) => {
         Post.find(req.query)
         .then(req => {res.json(req)})
         .catch(err => res.status(422).json(err));
+})
+
+router.get("/posts/:id", (req, res) => {
+  Post.findById(req.params.id)
+  .then(req => {res.json(req)})
+  .catch(err => res.status(422).json(err));
 })
 
 router.delete("/getPosts/:id", (req, res) => {
@@ -34,5 +35,22 @@ router.delete("/getPosts/:id", (req, res) => {
     .catch(err => res.status(422).json(err))
 })
 
+router.put("/getPosts/:id", (req,res) =>{
+  console.log(req.body);
+  console.log("testing");
+  Post.findByIdAndUpdate(
+    { _id: req.params.id},
+    req.body,
+    // {new:true}
+     )
+  .then(postModel => {res.json(postModel)})
+  .catch(err => res.status(422).json(err))
+})
+
+
+
+ 
 
 module.exports = router;
+
+

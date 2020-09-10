@@ -2,16 +2,22 @@ import React, { createContext, useReducer, useContext } from "react";
 import {
   SET_CURRENT_POST,
   REMOVE_POST,
-  UPDATE_POSTS,
+  SET_POSTS,
   ADD_POST,
+  UPDATE_POST,
   // ADD_FAVORITE,
   // UPDATE_FAVORITES,
   // REMOVE_FAVORITE,
   LOADING,
   USER_INFO,
+
   SET_GROUP_NAME,
   GET_GROUP,
   REMOVE_GROUP
+
+  SET_GROUP_NAME
+  
+
 } from "./actions";
 
 const StoreContext = createContext();
@@ -26,7 +32,7 @@ const reducer = (state, action) => {
       loading: false
     };
 
-  case UPDATE_POSTS:
+  case SET_POSTS:
     return {
       ...state,
       posts: [...action.posts],
@@ -47,6 +53,15 @@ const reducer = (state, action) => {
         return post._id !== action._id; 
       })
     };
+
+  case UPDATE_POST:
+    return{
+      ...state,
+      posts: state.posts.map((post) => {
+        if(post._id !== action.post._id) return post
+        return action.post
+      })
+    }
 
     case USER_INFO:
       return {

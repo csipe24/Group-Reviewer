@@ -38,7 +38,7 @@ function App() {
             justifyContent="stretch"
             areas={[
             { name: 'leftSpace', start: [0, 0], end: [0, 0] },
-            { name: 'main', start: [1, 0], end: [2, 0] },
+            { name: 'main', start: [0, 0], end: [2, 0] },
             { name: 'rightSpace', start: [0, 0], end: [0, 0] }
           ]}
           >
@@ -47,7 +47,8 @@ function App() {
             gridArea="main"
             background="#CCCCCC"
             direction="column"
-            pad="medium"
+            pad="none"
+            margin="none"
             alignSelf="center"
             margin="medium" 
             width={{min: "10%", max: "50%"}}

@@ -11,7 +11,6 @@ function RegisterForm(){
 
     const login = useLogin();
   
-
         return ( 
             <Grommet plain>
             <Box direction="row" justify="center" margin={{ top: 'medium' }}>
@@ -76,6 +75,7 @@ function RegisterForm(){
 
             </Box>
             </Form>
+             <Button className="member-button" href="/" label="Already a member? Click here!" plain="true" color="#00739D" margin="5%" />
             </Box>
         
           </Grommet>

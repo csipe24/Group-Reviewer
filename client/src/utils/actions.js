@@ -1,8 +1,9 @@
-export const UPDATE_POSTS = "UPDATE_POSTS";
+export const SET_POSTS = "SET_POSTS";
 export const REMOVE_POST = "REMOVE_POST";
 export const SET_CURRENT_POST = "SET_CURRENT_POST";
 export const ADD_POST = "ADD_POST";
 export const LOADING = "LOADING";
+export const UPDATE_POST = "UPDATE_POST";
 
 // GROUPS
 export const SET_GROUP_NAME = "SET_GROUP_NAME";
