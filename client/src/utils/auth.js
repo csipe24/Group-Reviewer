@@ -4,7 +4,7 @@ import jwt_decode from "jwt-decode";
 
 import api from "./api";
 import { useStoreContext, getStoreAction } from "../store";
-import { LOGIN_USER, LOGOUT_USER } from "../store/actions";
+import { LOGIN_USER, LOGOUT_USER, USER_INFO } from "../store/actions";
 
 const setAuthToken = token => {
 
@@ -76,7 +76,10 @@ export const useAuthTokenStore = () => {
                 // Validate the token with the server
                 api
                     .authenticated()
-                    .then( () => dispatch(getStoreAction( LOGIN_USER, userAuth )) )
+                    .then( (res) => {
+                        dispatch(getStoreAction( LOGIN_USER, userAuth )) 
+                        dispatch({type: USER_INFO, user: res.data})
+                    })
                     .catch( invalidate );
 
             }

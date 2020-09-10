@@ -1,10 +1,8 @@
 import React, {useEffect} from "react";
-import { useStoreContext } from "../../utils/GlobalState";
+import { useStoreContext } from "../../store/index";
 import api from "../../utils/api";
-import { GET_GROUP, REMOVE_GROUP, LOADING } from "../../utils/actions";
+import { GET_GROUP, REMOVE_GROUP, LOADING } from "../../store/actions";
 import { Grommet, CardHeader, Box, Card, CardBody, CardFooter, Button, Heading, Meter} from "grommet";
-
-
 
 function GroupList() {
   const [state, dispatch] = useStoreContext();

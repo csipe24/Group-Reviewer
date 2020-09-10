@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Feed from "./pages/Feed";
 import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
-import {StoreProvider} from "./utils/GlobalState";
+import {StoreProvider} from "./store/index";
 import GroupForm from "./components/GroupForm";
 import GroupList from "./components/GroupList";
 
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <StoreProvider>
+        
       <Navbar/>
         <div>
           {/* <PageGrid> */} {/* PageGrid and ContentContainer elements not rendering correctly. Commented out until I can get them functioning properly. */}
@@ -55,14 +55,19 @@ function App() {
             >
             <Switch>
               {isAuth
-              ?<Route exact path="/" component={Home}/>
+              ?(
+              <div>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/feed" component={Feed}/>
+              <Route exact path="/group" component={GroupForm}/>
+              <Route exact path="/grouplist" component={GroupList}/>
+              </div>
+              )
               :<Route exact path="/" component={Login}/>
               }
               
               <Route exact path="/register" component={Register}/>
-              <Route exact path="/feed" component={Feed}/>
-              <Route exact path="/group" component={GroupForm}/>
-              <Route exact path="/grouplist" component={GroupList}/>
+              
               <Route component={NoMatch} />
             </Switch>
             </Box >
@@ -71,7 +76,7 @@ function App() {
           {/* </PageGrid> */}
         </div>
       <PageFooter/>
-      </StoreProvider>
+    
       </Router>
     </div>
   );

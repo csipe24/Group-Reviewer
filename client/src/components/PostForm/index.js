@@ -3,7 +3,7 @@ import { Grommet, Form, FormField, Box, Button, TextInput, TextArea, Heading } f
 import { useStoreContext } from "../../store";
 import api from "../../utils/api";
 import { useIsAuthenticated } from "../../utils/auth";
-import { ADD_POST } from "../../utils/actions";
+import { ADD_POST } from "../../store/actions";
 
 
 function PostForm() {

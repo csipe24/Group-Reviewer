@@ -8,8 +8,7 @@ function VotingBar() {
         dislikes: 0
       });
 
-      
-
+    
   return (
     <Grommet>
     <Button onClick={() => setState({ ...state, likes: state.likes + 1  })} icon={<Like/>} hoverIndicator/> 

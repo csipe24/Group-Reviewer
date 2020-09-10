@@ -4,10 +4,7 @@ import {Box} from "grommet";
 function ContentContainer(){
     return(
 
-
         <Box direction="row" justify="center" margin={{ top: 'medium' }}></Box>
-
-
         // <Box
         //     gridArea="content"
         //     direction="column"

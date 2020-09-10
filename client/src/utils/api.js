@@ -25,12 +25,16 @@ export default {
         return axios.get("/postapi/getPosts");
     },
 
+    removePost(id){
+        return axios.delete("/postapi/getPosts/"+ id);
+    },
+  
     updatePost(id, data) {
       return axios.put("/postapi/getPosts/" + id, data);
     },
 
-    removePost(id){
-        return axios.delete("/postapi/getPosts/"+ id);
+    getPost(id) {
+      return axios.get("/postapi/posts/" + id);
     },
 
     newGroup(groupData){
@@ -41,4 +45,5 @@ export default {
         return axios.get("/groupapi/getGroups");
     }
 
-};
+}
+

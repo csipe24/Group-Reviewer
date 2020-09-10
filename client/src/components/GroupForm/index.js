@@ -1,17 +1,13 @@
 import React, {useRef} from "react";
 import { Grommet, Form, FormField, Box, Button, TextInput, TextArea, Heading } from 'grommet';
 import api from "../../utils/api";
-import { SET_GROUP_NAME } from "../../utils/actions";
+import { SET_GROUP_NAME } from "../../store/actions";
 import { useStoreContext } from "../../store";
-
-
 
 function GroupForm(){
     const groupNameRef = useRef();
     const [, dispatch] = useStoreContext();
-    
-
-
+  
     const handleSubmit = e => {
         e.preventDefault();
         // dispatch({ type: LOADING });

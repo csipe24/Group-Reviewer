@@ -1,7 +1,6 @@
 import React, {useRef} from "react";
 import { Grommet, Form, FormField, Box, Button, TextInput, TextArea, Heading } from 'grommet';
 // import api from "../../utils/api";
-import { useIsAuthenticated } from "../../utils/auth";
 import { useLogin } from "../../utils/auth";
 
 function LoginForm() {
