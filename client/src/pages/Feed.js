@@ -8,7 +8,7 @@ function Feed(){
         <Grommet>
             <Box fill align ="center" justify="center">
             <PostForm/>
-        
+
             <FeedList/>
             </Box>
      </Grommet>
