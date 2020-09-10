@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 // Create Schema
 const UserSchema = new Schema({
@@ -17,12 +17,13 @@ const UserSchema = new Schema({
   },
   groups: [{
     type: Schema.Types.ObjectId,
-    ref: "groups"
+    ref: 'groups'
   }],
   date: {
     type: Date,
     default: Date.now
   }
-});
+})
 
-module.exports = User = mongoose.model("users", UserSchema);
+// eslint-disable-next-line no-undef
+module.exports = User = mongoose.model('users', UserSchema)

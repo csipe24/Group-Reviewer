@@ -1,31 +1,30 @@
-import React, {useRef, useState} from "react";
-import { Grommet, Form, FormField, Box, Button, TextInput, TextArea, Heading } from 'grommet';
-import { useStoreContext } from "../../store";
-import api from "../../utils/api";
-import { useIsAuthenticated } from "../../utils/auth";
-import { ADD_POST } from "../../store/actions";
+import React, { useRef, useState } from 'react'
+import { Grommet, Form, FormField, Box, Button, TextInput, Heading } from 'grommet'
+import { useStoreContext } from '../../store'
+import api from '../../utils/api'
+// import { useIsAuthenticated } from '../../utils/auth'
+import { ADD_POST } from '../../store/actions'
 
+function PostForm () {
+  // const isAuth = useIsAuthenticated()
+  const titleRef = useRef()
+  const bodyRef = useRef()
+  const [, dispatch] = useStoreContext()
 
-function PostForm() {
-  const isAuth = useIsAuthenticated();
-  const titleRef = useRef();
-  const bodyRef = useRef();
-  const [state, dispatch] = useStoreContext();
+  const [author, setAuthor] = useState()
 
-  const [author, setAuthor] = useState();
-
-    const getUser = () =>{
-      api.authenticated()
+  const getUser = () => {
+    api.authenticated()
       .then(res => {
-        setAuthor(res.data.userName);
+        setAuthor(res.data.userName)
       })
-        .catch(err => console.log(err));
-      }
+      .catch(err => console.log(err))
+  }
 
-    getUser();
+  getUser()
 
   const handleSubmit = e => {
-    e.preventDefault();
+    e.preventDefault()
     // dispatch({ type: LOADING });
     api.newPost({
       title: titleRef.current.value,
@@ -38,56 +37,52 @@ function PostForm() {
         dispatch({
           type: ADD_POST,
           post: result.data
-        });
+        })
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
 
-    titleRef.current.value = "";
-    bodyRef.current.value = "";
-
-
-  };
-
-  
+    titleRef.current.value = ''
+    bodyRef.current.value = ''
+  }
 
   return (
-    <Grommet theme={{global: {colors:{doc: "#CCCCCC"}}}}>
-      <Box direction="row"  margin={{ top: 'medium' }}>
-      <Heading textAlign="center" level="2" size="medium">Food Lover Group</Heading>
+    <Grommet theme={{ global: { colors: { doc: '#CCCCCC' } } }}>
+      <Box direction="row" margin={{ top: 'medium' }}>
+        <Heading textAlign="center" level="2" size="medium">Food Lover Group</Heading>
       </Box>
 
-        <Box direction="row" justify="center" background="doc" margin={{ top: 'medium' }}>
-          <Form onReset={event => console.log(event)} onSubmit= {handleSubmit}>
-            <Box width="medium">
+      <Box direction="row" justify="center" background="doc" margin={{ top: 'medium' }}>
+        <Form onReset={event => console.log(event)} onSubmit= {handleSubmit}>
+          <Box width="medium">
             <FormField label="Title">
-            <TextInput
-            ref={titleRef}
-            validate={[
-              { regexp: /^[a-z]/i },
-              name => {
-                if (name && name.length < 5) return "Oops, Title must be > 5 letters";
-                return undefined;
-              }]}
-            required
-            />
+              <TextInput
+                ref={titleRef}
+                validate={[
+                  { regexp: /^[a-z]/i },
+                  name => {
+                    if (name && name.length < 5) return 'Oops, Title must be > 5 letters'
+                    return undefined
+                  }]}
+                required
+              />
             </FormField>
-            </Box>
-            <Box width="medium" name="body">
+          </Box>
+          <Box width="medium" name="body">
             <FormField label="Body">
-            <TextInput
-            ref={bodyRef}
-            required
-            />
+              <TextInput
+                ref={bodyRef}
+                required
+              />
             </FormField>
-            </Box>
-            <Box direction="row" justify="center" gap="medium">
+          </Box>
+          <Box direction="row" justify="center" gap="medium">
             <Button type="submit" primary label="Submit" color="#00739D"/>
             <Button type="reset" label="Reset" color="#00739D" />
-            </Box>
-          </Form>
+          </Box>
+        </Form>
       </Box>
     </Grommet>
-  );
+  )
 }
 
-export default PostForm;
+export default PostForm

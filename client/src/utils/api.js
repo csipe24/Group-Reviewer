@@ -1,49 +1,45 @@
-import axios from "axios";
+import axios from 'axios'
 
 export default {
 
-    register( userData ) {
-        return axios.post("/authapi/register", userData);
+  register (userData) {
+    return axios.post('/authapi/register', userData)
+  },
 
-    },
+  login (userData) {
+    return axios.post('/authapi/login', userData)
+  },
 
-    login( userData ) {
-        return axios.post("/authapi/login", userData);
+  authenticated () {
+    return axios.post('/authapi/authenticated')
+  },
 
-    },
+  newPost (postData) {
+    return axios.post('/postapi/newPost', postData)
+  },
 
-    authenticated() {
-        return axios.post("/authapi/authenticated");
+  getPosts () {
+    return axios.get('/postapi/getPosts')
+  },
 
-    },
+  removePost (id) {
+    return axios.delete('/postapi/getPosts/' + id)
+  },
 
-    newPost(postData){
-        return axios.post("/postapi/newPost", postData);
-    },
+  updatePost (id, data) {
+    return axios.put('/postapi/getPosts/' + id, data)
+  },
 
-    getPosts(){
-        return axios.get("/postapi/getPosts");
-    },
+  getPost (id) {
+    return axios.get('/postapi/posts/' + id)
+  },
 
-    removePost(id){
-        return axios.delete("/postapi/getPosts/"+ id);
-    },
-  
-    updatePost(id, data) {
-      return axios.put("/postapi/getPosts/" + id, data);
-    },
+  newGroup (groupData) {
+    return axios.post('/groupapi/newGroup', groupData)
+  },
 
-    getPost(id) {
-      return axios.get("/postapi/posts/" + id);
-    },
-
-    newGroup(groupData){
-        return axios.post("/groupapi/newGroup", groupData)
-    },
-
-    getGroups(){
-        return axios.get("/groupapi/getGroups");
-    }
+  getGroups () {
+    return axios.get('/groupapi/getGroups')
+  }
 
 }
-
