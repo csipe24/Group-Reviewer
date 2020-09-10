@@ -17,4 +17,10 @@ router.post("/newGroup", passport.authenticate('jwt', { session: false }),(req, 
       .catch(err => console.log(err));
 })
 
+router.get("/getGroups", (req, res) => {
+  Group.find(req.query)
+  .then(req => {res.json(req)})
+  .catch(err => res.status(422).json(err));
+})
+
 module.exports = router;

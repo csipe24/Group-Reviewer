@@ -6,7 +6,9 @@ export const LOADING = "LOADING";
 export const UPDATE_POST = "UPDATE_POST";
 
 // GROUPS
-export const SET_GROUP_NAME = "SET_GROUP_NAME"
+export const SET_GROUP_NAME = "SET_GROUP_NAME";
+export const REMOVE_GROUP = "REMOVE_GROUP";
+export const GET_GROUP = "GET_GROUP"
 
 // export const ADD_FAVORITE = "ADD_FAVORITE";
 // export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
