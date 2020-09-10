@@ -38,11 +38,18 @@ router.delete("/getPosts/:id", (req, res) => {
 router.put("/getPosts/:id", (req,res) =>{
   console.log(req.body);
   console.log("testing");
-  Post.findByIdAndUpdate( {_id : req.params.id}, req.body )
-  .then( postModel => {res.json(postModel)})
+  Post.findByIdAndUpdate(
+    { _id: req.params.id},
+    req.body,
+    // {new:true}
+     )
+  .then(postModel => {res.json(postModel)})
   .catch(err => res.status(422).json(err))
 })
 
+
+
+ 
 
 module.exports = router;
 
