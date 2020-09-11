@@ -47,6 +47,7 @@ function VotingBar ({post}) {
       
       </Box>
       <Meter
+        round="true"
         type="bar"
         background="#CCCCCC"
         values= {[
