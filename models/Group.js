@@ -1,23 +1,23 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const GroupSchema = new Schema({
-groupName: {
-    type:String, 
+  groupName: {
+    type: String,
     required: true
-},
-owner: { 
+  },
+  owner: {
     type: Schema.Types.ObjectId,
-    ref: "users"
-},
-users: [{
+    ref: 'users'
+  },
+  users: [{
     type: Schema.Types.ObjectId,
-    ref: "users"
-}],
-});
+    ref: 'users'
+  }]
+})
 
-const Group = mongoose.model("groups", GroupSchema);
-module.exports = Group;
+const Group = mongoose.model('groups', GroupSchema)
+module.exports = Group
 
 // Groups ID gets added to user
 // User ID gets added to Group
