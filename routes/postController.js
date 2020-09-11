@@ -9,7 +9,8 @@ router.post("/newPost", (req, res) => {
     const newPost = new Post({
         title: req.body.title,
         author: req.body.author,
-        body: req.body.body
+        body: req.body.body,
+        groupName: req.body.groupName
       });
 
       newPost.save().then(user => res.json(user))

@@ -4,7 +4,7 @@ import { useStoreContext } from '../../store/index'
 // eslint-disable-next-line no-unused-vars
 import { Favorite, ShareOption } from 'grommet-icons'
 import api from '../../utils/api'
-import { REMOVE_POST, SET_POSTS, LOADING } from '../../store/actions'
+import { REMOVE_POST } from '../../store/actions'
 import VotingBar from '../VotingBar'
 import UpdateModal from '../UpdatePostModal'
 
@@ -17,23 +17,6 @@ function PostList () {
   const [editPostID, setEditPostID] = useState('')
 
   // if post id matches then
-
-  const getAllPosts = () => {
-    dispatch({ type: LOADING })
-    api.getPosts()
-    // .then(results => console.log(results.data))
-      .then(results => {
-        dispatch({
-          type: SET_POSTS,
-          posts: results.data
-        })
-      })
-      .catch(err => console.log(err))
-  }
-
-  useEffect(() => {
-    getAllPosts()
-  }, [])
 
   const removePost = (id) => {
     console.log(id)
