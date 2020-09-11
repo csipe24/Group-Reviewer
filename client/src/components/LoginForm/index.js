@@ -1,11 +1,13 @@
 import React, { useRef } from 'react'
 import { Grommet, Form, FormField, Box, Button, TextInput, Heading } from 'grommet'
-// import api from "../../utils/api";
+import { Hide, View } from 'grommet-icons'
 import { useLogin } from '../../utils/auth'
 
 function LoginForm () {
   const emailRef = useRef()
   const passwordRef = useRef()
+  const [value, setValue] = React.useState('')
+  const [reveal, setReveal] = React.useState(false)
 
   const login = useLogin()
 
@@ -27,38 +29,54 @@ function LoginForm () {
   }
 
   return (
-    <Grommet theme={{ global: { colors: { doc: '#CCCCCC' } } }}>
+    <Grommet>
       <Box direction="row" justify="center" margin={{ top: 'medium' }}>
         <Heading justify="center" size="small">Login</Heading>
       </Box>
-
-      <Box direction="row" justify="center" background="doc" margin={{ top: 'medium' }}>
-
-        <Form onReset={event => console.log(event)} onSubmit= {handleSubmit}>
-
-          <Box width="medium">
-
-            <FormField label="Email">
-
+      <Box fill align="center" alignContent="center">
+        <Form 
+          onReset={event => console.log(event)} 
+          onSubmit= {handleSubmit}
+        >
+          <FormField>
+            <TextInput
+              placeholder="Email"
+              name="email"
+              type="email"
+              required 
+              ref={emailRef}
+              validate={[
+                { regexp: /^[a-z]/i },
+                name => {
+                  if (name && name.length < 5) return 'Oops, Title must be > 5 letters'
+                  return undefined
+                }]}
+              required
+            />
+          </FormField>
+          <Box 
+            width="flex"
+            direction="row"
+            margin="medium"
+            align="center"
+          >
+            <FormField>
               <TextInput
-                ref={emailRef}
-                validate={[
-                  { regexp: /^[a-z]/i },
-                  name => {
-                    if (name && name.length < 5) return 'Oops, Title must be > 5 letters'
-                    return undefined
-                  }]}
+                plain
+                name="password"
+                placeholder = "Password"
+                type={reveal ? 'text' : 'password'}
+                value={value}
+                onChange={event => setValue(event.target.value)}
                 required
-              />
-            </FormField>
-          </Box>
-          <Box width="medium" name="password">
-            <FormField label="Password">
-              <TextInput
                 ref={passwordRef}
                 required
               />
             </FormField>
+            <Button
+                icon={reveal ? <View size="medium" /> : <Hide size="medium" />}
+                onClick={() => setReveal(!reveal)}
+            />
           </Box>
           <Box direction="row" justify="center" gap="medium">
             <Button type="submit" primary label="Login" color="#00739D" />
@@ -71,17 +89,3 @@ function LoginForm () {
 }
 
 export default LoginForm
-
-// function Home(){
-//   const isAuth = useIsAuthenticated();
-//   const logout = useLogout();
-
-//   return(
-//       <div>
-//       <pageHeader/>
-
-//       <h1>Home!</h1>
-
-//       {isAuth
-//       ?<button onClick={logout}>Logout</button>
-//       :<a href="/login">Login</a>}

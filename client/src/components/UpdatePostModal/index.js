@@ -28,7 +28,7 @@ function UpdateModal ({ post, closeModal }) {
 
   return (
     <Layer onEsc={closeModal} onClickOutside={closeModal}>
-      <Box background="#C0C0C0" pad="medium" gap="small" width="medium">
+      <Box background="#C0C0C0" round="small" pad="medium" gap="small" width="medium">
         <Form onSubmit={() => {
           // eslint-disable-next-line react/prop-types
           updatePost(post._id)
@@ -66,7 +66,7 @@ function UpdateModal ({ post, closeModal }) {
           </Box>
 
           <Box direction="row" justify="center" gap="medium">
-            <Button type="submit" primary label="Submit" onClick={() => {
+            <Button type="submit" primary label="Submit" color="#00739D" onClick={() => {
               // console.log(`Testing: ${post._id}`);
               // eslint-disable-next-line react/prop-types
               updatePost(post._id)

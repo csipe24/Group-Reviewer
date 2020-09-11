@@ -8,6 +8,7 @@ import {
   SET_POSTS,
   ADD_POST,
   UPDATE_POST,
+  UPDATE_LIKES,
   // ADD_FAVORITE,
   // UPDATE_FAVORITES,
   // REMOVE_FAVORITE,
@@ -149,7 +150,10 @@ export const StoreProvider = ({ children }) => {
         _id: 0,
         title: '',
         body: '',
-        author: ''
+        author: '',
+        likes:'',
+        disLikes:''
+    
       },
       favorites: [],
       user: {

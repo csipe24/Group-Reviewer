@@ -12,7 +12,7 @@ function Navbar () {
       <Header background="#FFAA15" pad="small" gap="medium">
         {isAuth ? (
           <UserInfo />) : (
-          <Button href="/help"><Help /></Button>
+          <Button href="/help" alt="Help"><Help /></Button>
         )}
         {/* <Select label= "Groups"
                 options={["Group 1" , "Group 2"]}
