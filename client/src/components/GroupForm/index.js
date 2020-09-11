@@ -48,8 +48,8 @@ function GroupForm () {
           <Box width="medium" name="body">
           </Box>
           <Box direction="row" justify="center" gap="medium">
-            <Button type="submit" primary label="Submit" />
-            <Button type="reset" label="Reset" />
+            <Button type="submit" primary label="Submit" color="#00739D" />
+            <Button type="reset" label="Reset" color="#00739D" />
           </Box>
         </Form>
       </Box>

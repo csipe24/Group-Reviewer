@@ -14,16 +14,16 @@ function VotingBar () {
       <Button onClick={() => setState({ ...state, dislikes: state.dislikes + 1 })} icon={<Dislike/>} hoverIndicator/>
       <Meter
         type="bar"
-        background="status-critical"
+        background="#CCCCCC"
         values= {[
           {
             value: state.likes,
-            color: 'green',
+            color: '#00C781',
             label: 'Likes'
           },
           {
             value: state.dislikes,
-            color: 'red',
+            color: '#FF4040',
             label: 'Dislikes'
           }
         ]}
