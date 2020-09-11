@@ -8,6 +8,9 @@ export const ADD_POST = 'ADD_POST'
 export const LOADING = 'LOADING'
 export const UPDATE_POST = 'UPDATE_POST'
 
+// Likes
+export const UPDATE_LIKES = "UPDATE_LIKES"
+
 // GROUPS
 export const SET_GROUP_NAME = 'SET_GROUP_NAME'
 export const REMOVE_GROUP = 'REMOVE_GROUP'

@@ -40,6 +40,14 @@ export default {
 
   getGroups () {
     return axios.get('/groupapi/getGroups')
-  }
+  },
+
+  updateLikes (id, data) {
+    return axios.put('/postapi/likes/' + id, data)
+  },
+
+  updateDislikes (id, data) {
+    return axios.put('/postapi/dislikes/' + id, data)
+  },
 
 }
