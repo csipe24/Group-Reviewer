@@ -3,7 +3,8 @@ const router = express.Router();
 const passport = require("passport")
 
 // const {Group} = require("../models");
-const {Group, Post} = require("../models")
+const {Group, Post} = require("../models");
+const { Model } = require("mongoose");
 
 
 router.post("/newGroup", passport.authenticate('jwt', { session: false }),(req, res) => {
@@ -29,6 +30,13 @@ router.get("/group/:id", (req, res) => {
   .then(groupPosts => {res.json(groupPosts)})
   .catch(err => { res.status(422).json(err)
   })
+})
+
+router.delete("/group/:id", (req, res) => {
+  Group.findById({_id: req.params.id})
+  .then(groupName => groupName.remove())
+  .then(groupId => {res.json(groupId)})
+  .catch(err => res.status(422).json(err))
 })
 
 module.exports = router;

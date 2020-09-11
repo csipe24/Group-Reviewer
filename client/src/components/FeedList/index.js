@@ -10,19 +10,6 @@ import api from '../../utils/api'
 
 function FeedList () {
   const [state, dispatch] = useStoreContext()
-  
-  // const getAllGroupPosts = () => {
-  //   dispatch({ type: LOADING })
-  //   api.groupPost()
-  //   // .then(results => console.log(results.data))
-  //     .then(results => {
-  //       dispatch({
-  //         type: SET_POSTS,
-  //         posts: results.data
-  //       })
-  //     })
-  //     .catch(err => console.log(err))
-  // }
 
   const getAllPosts = () => {
     dispatch({ type: LOADING })
