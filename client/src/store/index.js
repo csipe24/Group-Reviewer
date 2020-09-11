@@ -163,6 +163,7 @@ export const StoreProvider = ({ children }) => {
         owner: '',
         users: ''
       },
+      groups: [],
       loading: false
     }
   )

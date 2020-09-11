@@ -3,6 +3,7 @@ import React from 'react'
 import { backgroundImages } from 'polished'
 import UserInfoGlobal from '../components/UserProfileInfoGlobal'
 import GroupForm from '../components/GroupForm'
+import GroupList from '../components/GroupList'
 
 function Home () {
   return (
@@ -11,6 +12,7 @@ function Home () {
       <h1>Welcome to the Group Reviewer!</h1>
       <UserInfoGlobal/>
       <GroupForm/>
+      <GroupList />
     </div>
   )
 }

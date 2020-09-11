@@ -40,6 +40,10 @@ export default {
 
   getGroups () {
     return axios.get('/groupapi/getGroups')
+  },
+
+  groupPost (id) {
+    return axios.get("/groupapi/group/" + id)
   }
 
 }

@@ -18,6 +18,7 @@ import { useIsAuthenticated } from "./utils/auth";
 
 import PageGrid from "./components/PageGrid";
 import ContentContainer from "./components/ContentContainer";
+import GroupPosts from "./pages/Groupposts";
 
 function App() {
   useAuthTokenStore();
@@ -61,6 +62,7 @@ function App() {
               <Route exact path="/feed" component={Feed}/>
               <Route exact path="/group" component={GroupForm}/>
               <Route exact path="/grouplist" component={GroupList}/>
+              <Route exact path="/group/:id" component={GroupPosts}/>
               </div>
               )
               :<Route exact path="/" component={Login}/>

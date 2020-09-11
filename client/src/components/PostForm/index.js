@@ -5,7 +5,7 @@ import api from '../../utils/api'
 // import { useIsAuthenticated } from '../../utils/auth'
 import { ADD_POST } from '../../store/actions'
 
-function PostForm () {
+function PostForm ({groupId}) {
   // const isAuth = useIsAuthenticated()
   const titleRef = useRef()
   const bodyRef = useRef()
@@ -31,7 +31,8 @@ function PostForm () {
       body: bodyRef.current.value,
       author: author,
       likes: 0,
-      dislikes: 0
+      dislikes: 0,
+      groupName: groupId
     })
       .then(result => {
         dispatch({
