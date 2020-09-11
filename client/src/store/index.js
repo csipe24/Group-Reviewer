@@ -98,7 +98,7 @@ const reducer = (state, action) => {
     case REMOVE_GROUP:
       return {
         ...state,
-        groupName: state.groups.filter((group) => {
+        groups: state.groups.filter((group) => {
           return group._id !== action._id
         })
       }

@@ -19,7 +19,6 @@ function PostList () {
   // if post id matches then
 
   const removePost = (id) => {
-    console.log(id)
     api.removePost(id).then(() => {
       dispatch({
         type: REMOVE_POST,

@@ -29,7 +29,6 @@ function GroupList () {
   }, [])
 
     const removeGroup = (id) => {
-      console.log(id)
       api.removeGroup(id).then( () => {
         dispatch({
           type: REMOVE_GROUP,
