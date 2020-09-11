@@ -13,8 +13,8 @@ import GroupList from "./components/GroupList";
 import {Grid, Box, Grommet} from "grommet";
 import { useIsAuthenticated } from "./utils/auth";
 
-import PageGrid from "./components/PageGrid";
-import ContentContainer from "./components/ContentContainer";
+// import PageGrid from "./components/PageGrid";
+// import ContentContainer from "./components/ContentContainer";
 import GroupPosts from "./pages/Groupposts";
 
 function App() {
