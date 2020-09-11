@@ -3,7 +3,8 @@ const router = express.Router();
 const passport = require("passport")
 
 // const {Group} = require("../models");
-const {Group} = require("../models")
+const {Group, Post} = require("../models")
+
 
 router.post("/newGroup", passport.authenticate('jwt', { session: false }),(req, res) => {
 
@@ -21,6 +22,13 @@ router.get("/getGroups", (req, res) => {
   Group.find(req.query)
   .then(req => {res.json(req)})
   .catch(err => res.status(422).json(err));
+})
+
+router.get("/group/:id", (req, res) => {
+  Post.find({groupName: req.params.id})
+  .then(groupPosts => {res.json(groupPosts)})
+  .catch(err => { res.status(422).json(err)
+  })
 })
 
 module.exports = router;

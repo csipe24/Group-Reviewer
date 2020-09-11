@@ -13,7 +13,11 @@ const GroupSchema = new Schema({
   users: [{
     type: Schema.Types.ObjectId,
     ref: 'users'
-  }]
+  }],
+  posts: {
+    type: Schema.Types.ObjectId,
+    ref: 'Post'
+  }
 })
 
 const Group = mongoose.model('groups', GroupSchema)
