@@ -58,7 +58,7 @@ function PostList () {
               <Card key={post._id} width="medium" background="light-1" margin="medium" >
                 <CardHeader pad="small">Title:{post.title}</CardHeader>
                 <CardHeader pad="small">Member:{post.author}</CardHeader>
-                <CardBody pad="small">{post.body}    <VotingBar/>
+                <CardBody pad="small">{post.body}    <VotingBar post={post}/>
                 </CardBody>
                 <CardFooter pad={{ horizontal: 'medium' }} background="light-2">
 

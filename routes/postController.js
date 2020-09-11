@@ -3,6 +3,7 @@ const router = express.Router();
 
 // Load User model
 const {Post} = require("../models");
+const { update } = require("../models/User");
 
 router.post("/newPost", (req, res) => {
     const newPost = new Post({
@@ -36,13 +37,27 @@ router.delete("/getPosts/:id", (req, res) => {
 })
 
 router.put("/getPosts/:id", (req,res) =>{
-  // console.log(req.params.id);
-  // console.log(req.body);
-  // console.log("testing");
   Post.findByIdAndUpdate( {_id : req.params.id}, req.body, {new:true} )
   .then( postModel => {res.json(postModel)})
   .catch(err => res.status(422).json(err))
 })
+
+router.put("/likes/:id", (req,res) =>{
+  console.log("Likes");
+  const updatedLikes = (req.body.likes + 1);
+  Post.findByIdAndUpdate( {_id : req.params.id}, {likes:updatedLikes}, {new:true} )
+  .then( postModel => {res.json(postModel)})
+  .catch(err => res.status(422).json(err))
+})
+
+router.put("/dislikes/:id", (req,res) =>{
+  console.log("Dislikes");
+  const updatedDislikes = (req.body.dislikes + 1);
+  Post.findByIdAndUpdate( {_id : req.params.id}, {dislikes:updatedDislikes}, {new:true} )
+  .then( postModel => {res.json(postModel)})
+  .catch(err => res.status(422).json(err))
+})
+
 
 
 module.exports = router;
