@@ -18,13 +18,3 @@ const GroupSchema = new Schema({
 
 const Group = mongoose.model('groups', GroupSchema)
 module.exports = Group
-
-// Groups ID gets added to user
-// User ID gets added to Group
-
-// Add user to both owner and users
-
-// groups/groupid/users post route to add users
-
-// 1.Create Group
-// 2. Put Group id in user array

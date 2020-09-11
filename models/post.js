@@ -6,8 +6,8 @@ const postSchema = new Schema({
   author: { type: String, required: true },
   body: { type: String, required: true },
   date: { type: Date, default: Date.now },
-  likes: { type: Number },
-  dislikes: { type: Number },
+  likes: { type: Number, default: 0 },
+  dislikes: { type: Number, default: 0  },
   groupName: {
     type: Schema.Types.ObjectId,
     ref: 'groups'

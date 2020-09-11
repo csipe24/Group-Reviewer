@@ -1,131 +1,106 @@
-import { useEffect } from "react";
-import axios from "axios";
-import jwt_decode from "jwt-decode";
+import { useEffect } from 'react'
+import axios from 'axios'
+// eslint-disable-next-line camelcase
+import jwt_decode from 'jwt-decode'
 
-import api from "./api";
-import { useStoreContext, getStoreAction } from "../store";
-import { LOGIN_USER, LOGOUT_USER, USER_INFO } from "../store/actions";
+import api from './api'
+import { useStoreContext, getStoreAction } from '../store'
+import { LOGIN_USER, LOGOUT_USER, USER_INFO } from '../store/actions'
 
 const setAuthToken = token => {
+  storeAuthToken(token)
+  applyAuthToken(token)
 
-    storeAuthToken( token );
-    applyAuthToken( token );
-
-    return token ? jwt_decode(token) : undefined;
-
+  return token ? jwt_decode(token) : undefined
 }
 
 const storeAuthToken = token => {
+  token
 
-    token
+    ? localStorage.setItem('jwtToken', token)
 
-        ? localStorage.setItem("jwtToken", token)
-        
-        : localStorage.removeItem( "jwtToken" );
-
+    : localStorage.removeItem('jwtToken')
 }
 
 const applyAuthToken = token => {
+  token
 
-    token
+  // Apply authorization token to every request if logged in
+    ? axios.defaults.headers.common.Authorization = token
 
-        // Apply authorization token to every request if logged in
-        ? axios.defaults.headers.common["Authorization"] = token
-
-        // Delete auth header
-        : delete axios.defaults.headers.common["Authorization"];
-
-};
+  // Delete auth header
+    : delete axios.defaults.headers.common.Authorization
+}
 
 export const useAuthTokenStore = () => {
+  const [, dispatch] = useStoreContext()
 
-    const [ store, dispatch ] = useStoreContext();
+  useEffect(() => {
+    // Check for token to keep user logged in
+    if (localStorage.jwtToken) {
+      // Set auth token header auth
+      const token = localStorage.jwtToken
 
-    useEffect(() => {
-        // Check for token to keep user logged in
-        if (localStorage.jwtToken) {
-            
-            // Set auth token header auth
-            const token = localStorage.jwtToken;
-            
-            // Decode token and get user info and exp
-            const userAuth = jwt_decode(token);
-            
-            // Check for expired token
-            const currentTime = Date.now() / 1000; // to get in milliseconds
+      // Decode token and get user info and exp
+      const userAuth = jwt_decode(token)
 
-            const invalidate = () => {
+      // Check for expired token
+      const currentTime = Date.now() / 1000 // to get in milliseconds
 
-                // Logout user
-                setAuthToken( false );
-                dispatch(getStoreAction( LOGOUT_USER ));
-                
-                // Redirect to login
-                window.location.href = "./";
+      const invalidate = () => {
+        // Logout user
+        setAuthToken(false)
+        dispatch(getStoreAction(LOGOUT_USER))
 
-            }
-            
-            if (userAuth.exp < currentTime) {
-                
-                invalidate();
+        // Redirect to login
+        window.location.href = './'
+      }
 
-            } else {
+      if (userAuth.exp < currentTime) {
+        invalidate()
+      } else {
+        applyAuthToken(token)
 
-                applyAuthToken(token);
-
-                // Validate the token with the server
-                api
-                    .authenticated()
-                    .then( (res) => {
-                        dispatch(getStoreAction( LOGIN_USER, userAuth )) 
-                        dispatch({type: USER_INFO, user: res.data})
-                    })
-                    .catch( invalidate );
-
-            }
-
-        }
-    }, [])
-
+        // Validate the token with the server
+        api
+          .authenticated()
+          .then((res) => {
+            dispatch(getStoreAction(LOGIN_USER, userAuth))
+            dispatch({ type: USER_INFO, user: res.data })
+          })
+          .catch(invalidate)
+      }
+    }
+  }, [])
 }
 
 export const useIsAuthenticated = () => {
+  const [{ userAuth }] = useStoreContext()
 
-    const [ { userAuth } ] = useStoreContext();
-
-    return userAuth && userAuth.exp > Date.now() / 1000;
-
+  return userAuth && userAuth.exp > Date.now() / 1000
 }
 
 export const useLogin = () => {
+  const [, dispatch] = useStoreContext()
 
-    const [ store, dispatch ] = useStoreContext();
+  return async (credential) => {
+    const { data: { token } } = await api.login(credential)
 
-    return async ( credential ) => {
-    
-        const { data: { token } } = await api.login( credential );
+    const userAuth = setAuthToken(token)
 
-        const userAuth = setAuthToken( token );
+    dispatch(getStoreAction(LOGIN_USER, userAuth))
 
-        dispatch(getStoreAction( LOGIN_USER, userAuth ));
-
-        return userAuth;
-        
-    }
-    
+    return userAuth
+  }
 }
 
 export const useLogout = () => {
+  const [, dispatch] = useStoreContext()
 
-    const [ store, dispatch ] = useStoreContext();
+  return () => {
+    setAuthToken(false)
+    dispatch(getStoreAction(LOGOUT_USER))
 
-    return () => {
-
-        setAuthToken( false );
-        dispatch(getStoreAction(LOGOUT_USER));
-
-        window.location.href = "./";
-
-    }
-    
+    window.location.href = './'
+  }
 }

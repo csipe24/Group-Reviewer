@@ -1,89 +1,91 @@
-import React, {useRef} from "react";
-import { Grommet, Form, FormField, Box, Button, TextInput, TextArea, Heading } from 'grommet';
-// import api from "../../utils/api";
-import { useLogin } from "../../utils/auth";
+import React, { useRef } from 'react'
+import { Grommet, Form, FormField, Box, Button, TextInput, Heading } from 'grommet'
+import { Hide, View } from 'grommet-icons'
+import { useLogin } from '../../utils/auth'
 
-function LoginForm() {
+function LoginForm () {
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const [value, setValue] = React.useState('')
+  const [reveal, setReveal] = React.useState(false)
 
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const login = useLogin()
 
-  const login = useLogin();
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const loginEmail = emailRef.current.value
+    const loginPassword = passwordRef.current.value
 
-  const handleSubmit = (event)=>{
-      event.preventDefault();
-      const loginEmail = emailRef.current.value;
-      const loginPassword = passwordRef.current.value;
+    console.log('Submit')
+    console.log(loginEmail)
+    console.log(loginPassword)
 
-      console.log("Submit");
-      console.log(loginEmail);
-      console.log(loginPassword);
+    login({ email: loginEmail, password: loginPassword })
+      .then(userAuth => console.log(userAuth))
+      .catch(errors => errors)
 
-      login( {email: loginEmail, password: loginPassword} )
-      .then( userAuth => console.log( userAuth ))
-      .catch( errors => errors );
-
-      emailRef.current.value = "";
-      passwordRef.current.value = "";
-  };
+    emailRef.current.value = ''
+    passwordRef.current.value = ''
+  }
 
   return (
-    <Grommet theme={{global: {colors:{doc: "#CCCCCC"}}}}>
-        <Box direction="row" justify="center" margin={{ top: 'medium' }}>
+    <Grommet>
+      <Box direction="row" justify="center" margin={{ top: 'medium' }}>
         <Heading justify="center" size="small">Login</Heading>
-        </Box>
-
-        <Box direction="row" justify="center" background="doc" margin={{ top: 'medium' }}>
-            
-            <Form onReset={event => console.log(event)} onSubmit= {handleSubmit}>
-
-            <Box width="medium">
-
-            <FormField label="Email">
-
+      </Box>
+      <Box fill align="center" alignContent="center">
+        <Form 
+          onReset={event => console.log(event)} 
+          onSubmit= {handleSubmit}
+        >
+          <FormField>
             <TextInput
-            ref={emailRef}
-            validate={[
-              { regexp: /^[a-z]/i },
-              name => {
-                if (name && name.length < 5) return "Oops, Title must be > 5 letters";
-                return undefined;
-              }]}
-            required
+              placeholder="Email"
+              name="email"
+              type="email"
+              required 
+              ref={emailRef}
+              validate={[
+                { regexp: /^[a-z]/i },
+                name => {
+                  if (name && name.length < 5) return 'Oops, Title must be > 5 letters'
+                  return undefined
+                }]}
+              required
             />
+          </FormField>
+          <Box 
+            width="flex"
+            direction="row"
+            margin="medium"
+            align="center"
+          >
+            <FormField>
+              <TextInput
+                plain
+                name="password"
+                placeholder = "Password"
+                type={reveal ? 'text' : 'password'}
+                value={value}
+                onChange={event => setValue(event.target.value)}
+                required
+                ref={passwordRef}
+                required
+              />
             </FormField>
-            </Box>
-            <Box width="medium" name="password">
-            <FormField label="Password">
-            <TextInput
-            ref={passwordRef}
-            required
+            <Button
+                icon={reveal ? <View size="medium" /> : <Hide size="medium" />}
+                onClick={() => setReveal(!reveal)}
             />
-            </FormField>
-            </Box>
-            <Box direction="row" justify="center" gap="medium">
+          </Box>
+          <Box direction="row" justify="center" gap="medium">
             <Button type="submit" primary label="Login" color="#00739D" />
             <Button type="reset" label="Register" href="/register" color="#00739D"/>
-            </Box>
-          </Form>
+          </Box>
+        </Form>
       </Box>
     </Grommet>
-  );
+  )
 }
 
-export default LoginForm;
-
-
-// function Home(){
-//   const isAuth = useIsAuthenticated();
-//   const logout = useLogout();
-
-//   return(
-//       <div>
-//       <pageHeader/>
-
-//       <h1>Home!</h1>
-
-//       {isAuth
-//       ?<button onClick={logout}>Logout</button>
-//       :<a href="/login">Login</a>}
+export default LoginForm

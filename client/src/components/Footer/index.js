@@ -1,9 +1,9 @@
-import React from "react";
-import { Footer, Button, Text, Grommet } from "grommet";
-import { Github } from "grommet-icons";
-import "./footer.css";
+import React from 'react'
+import { Footer, Button, Text, Grommet } from 'grommet'
+import { Github } from 'grommet-icons'
+import './footer.css'
 
-function PageFooter() {
+function PageFooter () {
   return (
     <Grommet>
       <Footer background="#FFAA15" justify="center" pad="small">
@@ -16,7 +16,7 @@ function PageFooter() {
         </Text>
       </Footer>
     </Grommet>
-  );
+  )
 }
 
-export default PageFooter;
+export default PageFooter
