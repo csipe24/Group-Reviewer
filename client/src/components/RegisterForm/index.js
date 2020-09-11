@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grommet, Box, Form, FormField, Button, Text } from 'grommet'
+import { Grommet, Box, Form, FormField, Button, Text, Heading } from 'grommet'
 import { Hide, View } from 'grommet-icons'
 import api from '../../utils/api'
 import { useLogin } from '../../utils/auth'
@@ -11,9 +11,9 @@ function RegisterForm () {
   const login = useLogin()
 
   return (
-    <Grommet plain>
+    <Grommet>
       <Box direction="row" justify="center" margin={{ top: 'medium' }}>
-        <Text size="xlarge">Register</Text>
+        <Heading justify="center" size="small">Register</Heading>
       </Box>
       <Box fill align="center" alignContent="center" >
         <Form
@@ -23,8 +23,8 @@ function RegisterForm () {
               .then(console.log({ userName: value.userName, email: value.email, password: value.password }))
               .then(() => login({ email: value.email, password: value.password }))
               .then(() => (window.location.href = './'))
-              .catch(e => { console.log(e) })
-          }>
+              .catch(e => { console.log(e) })}
+        >
           <FormField
             placeholder="User Name"
             name="userName"
@@ -38,19 +38,17 @@ function RegisterForm () {
             ]}
           />
           <FormField
-            // ref={emailInput}
             placeholder="Email"
             name="email"
             type="email"
-            required />
-
+            required
+          />
           <Box
             width="flex"
             direction="row"
             margin="medium"
             align="center"
           >
-
             <FormField
               plain
               name="password"
@@ -59,18 +57,15 @@ function RegisterForm () {
               value={value}
               onChange={event => setValue(event.target.value)}
               required
-
             />
             <Button
               icon={reveal ? <View size="medium" /> : <Hide size="medium" />}
               onClick={() => setReveal(!reveal)}
             />
           </Box>
-
-          <Box direction="row" justify="between" margin={{ top: 'medium' }}>
+          <Box direction="row" justify="center" gap="medium">
+            <Button primary type="submit" label="Submit" color="#00739D" />
             <Button label="Cancel" type="reset" color="#00739D" />
-            <Button type="submit" label="Submit" color="#00739D" />
-
           </Box>
         </Form>
         <Button className="member-button" href="/" label="Already a member? Click here!" plain="true" color="#00739D" margin="5%" />

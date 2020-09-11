@@ -67,6 +67,7 @@ function PostList () {
                     color="#00739D"
                   />
                   <Button label="Update"
+                    color="#00739D"
                     onClick={() => { setEditPostID(post._id) }}/>
                   {post._id === editPostID && (
                     <UpdateModal post={post} closeModal={closeModal}/>

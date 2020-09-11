@@ -48,16 +48,16 @@ function VotingBar ({post}) {
       </Box>
       <Meter
         type="bar"
-        background="status-critical"
+        background="#CCCCCC"
         values= {[
           {
-            value: postLikes,
-            color: 'green',
+            value: state.likes,
+            color: '#00C781',
             label: 'Likes'
           },
           {
-            value: postDislikes,
-            color: 'red',
+            value: state.dislikes,
+            color: '#FF4040',
             label: 'Dislikes'
           }
         ]}
