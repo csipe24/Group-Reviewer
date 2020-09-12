@@ -41,7 +41,7 @@ function GroupList () {
 
   return (
     <Grommet plain>
-      <Box>
+      <Box >
         {state.groups.length ? (
           <Box >
             {state.groups.slice(0).reverse().map(group => (

@@ -41,8 +41,8 @@ function App() {
             gridArea="main"
             background="#CCCCCC"
             round="small"
-            margin="medium" 
-            width={{min: "10%", max: "50%"}}
+            margin={{"top":"medium"}}
+            width={{min: "10%", max: "49%"}}
             >
             <Switch>
               {isAuth
