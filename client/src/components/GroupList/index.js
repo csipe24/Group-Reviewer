@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { useStoreContext } from '../../store/index'
-import api from '../../utils/api'
-import { Link } from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { useStoreContext } from "../../store/index";
+import api from "../../utils/api";
+import { Link } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
-import { GET_GROUP, REMOVE_GROUP, LOADING } from '../../store/actions'
+import { GET_GROUP, REMOVE_GROUP, LOADING } from "../../store/actions";
 
 // eslint-disable-next-line no-unused-vars
 import { Grommet, CardHeader, Box, Card, CardBody, CardFooter, Button, Heading, Stack} from 'grommet'
@@ -23,23 +23,22 @@ function GroupList () {
             groups: results.data
           })
       })
-      .catch(err => console.log(err))
-  }
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
-    getGroups()
-  }, [])
+    getGroups();
+  }, []);
 
     const removeGroup = (id) => {
       api.removeGroup(id).then( () => {
         dispatch({
           type: REMOVE_GROUP,
-          _id: id
-        })
-      })  .catch(err => console.log(err));
-    }
-
-
+          _id: id,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <Grommet plain>
@@ -89,10 +88,9 @@ function GroupList () {
         ) : (
           <Heading>No Posts</Heading>
         )}
-
       </Box>
     </Grommet>
-  )
+  );
 }
 
-export default GroupList
+export default GroupList;
