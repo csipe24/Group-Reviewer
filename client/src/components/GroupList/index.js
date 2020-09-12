@@ -6,31 +6,22 @@ import { Link } from "react-router-dom";
 import { GET_GROUP, REMOVE_GROUP, LOADING } from "../../store/actions";
 
 // eslint-disable-next-line no-unused-vars
-import {
-  Grommet,
-  CardHeader,
-  Box,
-  Card,
-  CardBody,
-  CardFooter,
-  Button,
-  Heading,
-  Meter,
-} from "grommet";
+import { Grommet, CardHeader, Box, Card, CardBody, CardFooter, Button, Heading, Stack} from 'grommet'
+import { Close } from 'grommet-icons'
 
-function GroupList() {
-  const [state, dispatch] = useStoreContext();
-
+function GroupList () {
+  const [state, dispatch] = useStoreContext()
+  console.log(state)
+  
   const getGroups = () => {
-    dispatch({ type: LOADING });
-    api
-      .getGroups()
-      .then((results) => {
-        console.log(results.data);
-        dispatch({
-          type: GET_GROUP,
-          groups: results.data,
-        });
+    dispatch({ type: LOADING })
+    api.getGroups()
+      .then(results => {
+        // console.log(results.data)
+          dispatch({
+            type: GET_GROUP,
+            groups: results.data
+          })
       })
       .catch((err) => console.log(err));
   };
@@ -39,11 +30,8 @@ function GroupList() {
     getGroups();
   }, []);
 
-  const removeGroup = (id) => {
-    console.log(id);
-    api
-      .removeGroup(id)
-      .then(() => {
+    const removeGroup = (id) => {
+      api.removeGroup(id).then( () => {
         dispatch({
           type: REMOVE_GROUP,
           _id: id,
@@ -54,44 +42,49 @@ function GroupList() {
 
   return (
     <Grommet plain>
-      <Box>
+      <Box >
         {state.groups.length ? (
-          <Box>
-            {state.groups
-              .slice(0)
-              .reverse()
-              .map((group) => (
-                <Card
-                  key={group._id}
-                  width="medium"
-                  background="light-1"
-                  margin="medium"
-                >
-                  <CardHeader pad="small">
-                    Group Name:{group.groupName}
-                  </CardHeader>
+          <Box >
+            {state.groups.slice(0).reverse().map(group => (
+              <Card key={group._id} width="medium" background="light-1" margin="medium" >
+                <Stack anchor="right">
 
-                  <CardFooter
-                    pad={{ horizontal: "medium" }}
-                    background="light-2"
-                  >
-                    <Link to={"/group/" + group._id}>
-                      <strong>Go to Posts</strong>
-                    </Link>
-                    <Button
-                      primary
-                      label="Delete"
-                      onClick={() => removeGroup(group._id)}
-                      color="#00739D"
-                    />
-                    {/* <Button label="Update"
-                    onClick={() => { setEditPostID(post._id) }}/>
-                  {post._id === editPostID && (
-                    <UpdateModal post={post} closeModal={closeModal}/>
-                  )} */}
-                  </CardFooter>
-                </Card>
-              ))}
+                <CardHeader  pad="small">
+               
+                <Heading margin="small" align="center" color="Black" level="3">{group.groupName}
+                </Heading>
+              
+                </CardHeader>
+
+                {(state.user._id = group.owner)? ( 
+                // <Box alignSelf="end"  gap="xsmall" round="full" overflow="hidden" background="red" margin="small">
+                <Button color="red" margin="small" icon={<Close/>} hoverIndicator={{color:"red", light:"red"}} onClick={() => removeGroup(group._id)} />
+        
+                ):("")}
+
+        
+              
+                </Stack>
+
+                <CardBody alignContents="center" pad={{ horizontal: 'medium' }} background="light-2">
+
+                <Box alignContent="center" direction="column">
+
+                <Link alignContent="center" to={"/group/" + group._id} > 
+                <Heading level="4" color="#FFAA15">Go to Posts</Heading>
+                </Link>
+
+                <Link  > 
+                <Heading level="4" color="#FFAA15">Manage Users</Heading>
+                </Link>
+              
+
+                </Box>
+
+              
+                </CardBody>
+              </Card>
+            ))}
           </Box>
         ) : (
           <Heading>No Posts</Heading>

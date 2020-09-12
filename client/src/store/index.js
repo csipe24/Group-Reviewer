@@ -98,7 +98,7 @@ const reducer = (state, action) => {
     case REMOVE_GROUP:
       return {
         ...state,
-        groupName: state.groups.filter((group) => {
+        groups: state.groups.filter((group) => {
           return group._id !== action._id
         })
       }
@@ -160,7 +160,8 @@ export const StoreProvider = ({ children }) => {
         date: '',
         email: '',
         password: '',
-        userName: ''
+        userName: '',
+        groups: []
       },
       newGroup: {
         groupName: '',
@@ -168,6 +169,10 @@ export const StoreProvider = ({ children }) => {
         users: ''
       },
       groups: [],
+      currentGroup: {
+        groupName: '',
+        owner: ''
+      },
       loading: false
     }
   )

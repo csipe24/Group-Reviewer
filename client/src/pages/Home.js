@@ -4,16 +4,18 @@ import { backgroundImages } from 'polished'
 import UserInfoGlobal from '../components/UserProfileInfoGlobal'
 import GroupForm from '../components/GroupForm'
 import GroupList from '../components/GroupList'
+import { Grommet, Heading, Box } from 'grommet'
+
 
 function Home () {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <h1>Welcome to the Group Reviewer!</h1>
-      <UserInfoGlobal/>
+    <Grommet >
+      <Box align="center" >
+      <Heading>Hub</Heading>
       <GroupForm/>
       <GroupList />
-    </div>
+      </Box>
+    </Grommet>
   )
 }
 

@@ -11,6 +11,7 @@ import UpdateModal from '../UpdatePostModal'
 function PostList () {
   const [state, dispatch] = useStoreContext()
 
+
   // const [title, setTitle] = useState('')
   // const [body, setBody] = useState('')
 
@@ -19,7 +20,6 @@ function PostList () {
   // if post id matches then
 
   const removePost = (id) => {
-    console.log(id)
     api.removePost(id).then(() => {
       dispatch({
         type: REMOVE_POST,
@@ -34,22 +34,23 @@ function PostList () {
 
   return (
     <Grommet plain>
-      <Box>
+      <Box align="center">
         {state.posts.length ? (
           <Box >
             {state.posts.slice(0).reverse().map(post => (
-              <Card key={post._id} width="medium" background="light-1" margin="40px" >
-                <CardHeader align="center" direction="column" gap="none">
+              <Card key={post._id} width="medium" background="light-1" margin={{"top":"25px", "bottom":"15px"}} >
+                <CardHeader align="center" direction="column" gap="xxsmall">
                   <Heading color="black" level="2">{post.title}</Heading>
                   <Heading  margin={{ top: 'none' }} color="silver" level="3">{post.author}</Heading>
                 </CardHeader>
              
-                <CardBody  pad="small">
+                <CardBody  pad="none">
                 <Heading textAlign="center" margin={{ top: 'none' }}  color="black" level="5">{post.body}</Heading>
                 <VotingBar post={post}/>
                 </CardBody>
 
-                <CardFooter pad={{ horizontal: 'medium' }} background="light-2">
+                {(state.user.userName = post.author)?(
+                  <CardFooter pad={{ horizontal: 'medium' }} background="light-2">
                   <Button
                     primary label="Delete" onClick={() => removePost(post._id)}
                     color="#00739D"
@@ -61,6 +62,8 @@ function PostList () {
                     <UpdateModal post={post} closeModal={closeModal}/>
                   )}
                 </CardFooter>
+                ):("")}
+                
               </Card>
             ))}
           </Box>

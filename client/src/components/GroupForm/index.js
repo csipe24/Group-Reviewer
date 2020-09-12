@@ -26,13 +26,14 @@ function GroupForm () {
 
   return (
     <Grommet plain>
-      <Box direction="row" margin={{ top: 'medium' }}>
-        <Heading textAlign="center" level="2" size="medium">Enter a Group Name</Heading>
+      <Box round="small" width="medium" background="#FFAA15" margin={{"top":"25px", "bottom":"15px"}} align="center">
+      <Box direction="row">
+        <Heading color="black" textAlign="center" level="2" size="medium">New Group</Heading>
       </Box>
-      <Box direction="row" justify="center" background="doc" margin={{ top: 'medium' }}>
-        <Form onReset={event => console.log(event)} onSubmit= {handleSubmit}>
-          <Box width="medium">
-            <FormField label="Title">
+      <Box direction="row" justify="center" background="doc" pad="small">
+       <Box>
+        <Form justify="center" onReset={event => console.log(event)} onSubmit= {handleSubmit}>
+           <FormField label="Title" size="small">
               <TextInput
                 ref={groupNameRef}
                 validate={[
@@ -44,7 +45,7 @@ function GroupForm () {
                 required
               />
             </FormField>
-          </Box>
+           
           <Box width="medium" name="body">
           </Box>
           <Box direction="row" justify="center" gap="medium">
@@ -52,6 +53,8 @@ function GroupForm () {
             <Button type="reset" label="Reset" color="#00739D" />
           </Box>
         </Form>
+        </Box>
+      </Box>
       </Box>
     </Grommet>
   )

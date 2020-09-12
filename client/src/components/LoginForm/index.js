@@ -16,12 +16,8 @@ function LoginForm () {
     const loginEmail = emailRef.current.value
     const loginPassword = passwordRef.current.value
 
-    console.log('Submit')
-    console.log(loginEmail)
-    console.log(loginPassword)
-
     login({ email: loginEmail, password: loginPassword })
-      .then(userAuth => console.log(userAuth))
+      // .then(userAuth => console.log(userAuth))
       .catch(errors => errors)
 
     emailRef.current.value = ''
@@ -30,10 +26,10 @@ function LoginForm () {
 
   return (
     <Grommet>
-      <Box direction="row" justify="center" margin={{ top: 'medium' }}>
+      <Box direction="row" justify="center" margin={{ top: 'medium' }} pad="small">
         <Heading justify="center" size="small">Login</Heading>
       </Box>
-      <Box fill align="center" alignContent="center">
+      <Box fill align="center" alignContent="center" >
         <Form 
           onReset={event => console.log(event)} 
           onSubmit= {handleSubmit}
@@ -78,12 +74,13 @@ function LoginForm () {
                 onClick={() => setReveal(!reveal)}
             />
           </Box>
-          <Box direction="row" justify="center" gap="medium">
+          <Box direction="row" justify="center" gap="medium" pad={{bottom:"small"}}>
             <Button type="submit" primary label="Login" color="#00739D" />
             <Button type="reset" label="Register" href="/register" color="#00739D"/>
           </Box>
         </Form>
       </Box>
+   
     </Grommet>
   )
 }

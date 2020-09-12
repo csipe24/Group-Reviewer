@@ -41,8 +41,12 @@ export default {
     return axios.get("/groupapi/getGroups");
   },
 
-  groupPost(id) {
-    return axios.get("/groupapi/group/" + id);
+  removeGroup(id) {
+    return axios.get('/groupapi/group/'+ id ) 
+  },
+
+  groupPost (id) {
+    return axios.get("/groupapi/group/" + id)
   },
 
   updateLikes(id, data) {
@@ -55,5 +59,5 @@ export default {
 
   removeGroup(id) {
     return axios.delete("/group/groupid" + id);
-  },
+  }
 };
