@@ -1,21 +1,15 @@
 import React from "react";
 import { useAuthTokenStore } from "./utils/auth";
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import PageFooter from "./components/Footer";
-import Register from "./pages/Register";
-import Home from "./pages/Home";
-import Feed from "./pages/Feed";
-import Login from "./pages/Login";
-import NoMatch from "./pages/NoMatch";
-import GroupForm from "./components/GroupForm";
-import GroupList from "./components/GroupList";
-import {Grid, Box, Grommet} from "grommet";
+import {Grid, Grommet} from "grommet";
 import { useIsAuthenticated } from "./utils/auth";
+import LeftContainer from "./components/LeftContainer";
+import CenterContainer from "./components/CenterContainer";
+import RightContainer from "./components/RightContainer";
 
-// import PageGrid from "./components/PageGrid";
-// import ContentContainer from "./components/ContentContainer";
-import GroupPosts from "./pages/Groupposts";
+import PageGrid from "./components/PageGrid";
 
 function App() {
   useAuthTokenStore();
@@ -26,54 +20,23 @@ function App() {
       <Router>  
       <Navbar/>
         <div>
+          {/* <PageGrid> */}
           <Grid
-          responsive="true"
-            columns={['auto', 'medium', 'auto']}
+            responsive="true"
+            columns={['auto', 'auto', 'medium', 'auto', 'auto']}
             rows={['flex']}
             gap="small"
             areas={[
-            { name: 'leftSpace', start: [0, 0], end: [0, 0] },
-            { name: 'main', start: [1, 0], end: [1, 0] },
-            { name: 'rightSpace', start: [2, 0], end: [2, 0] }
-          ]}
+              { name: 'leftSpace', start: [1, 0], end: [1, 0] },
+              { name: 'main', start: [2, 0], end: [2, 0] },
+              { name: 'rightSpace', start: [3, 0], end: [3, 0] }
+            ]}
           >
-          <Box
-            gridArea="leftSpace"
-            background="#CCCCCC"
-            round="small"
-            margin={{"top":"medium"}}
-          ></Box>
-          <Box
-            gridArea="main"
-            background="#CCCCCC"
-            round="small"
-            margin={{"top":"medium"}}
-  
-            >
-            <Switch>
-              {isAuth
-              ?(
-              <div>
-              <Route exact path="/" component={Home}/>
-              <Route exact path="/feed" component={Feed}/>
-              <Route exact path="/group" component={GroupForm}/>
-              <Route exact path="/grouplist" component={GroupList}/>
-              <Route exact path="/group/:id" component={GroupPosts}/>
-              </div>
-              )
-              :<Route exact path="/" component={Login}/>
-              }
-              <Route exact path="/register" component={Register}/>
-              <Route component={NoMatch} />
-            </Switch>
-            </Box >
-          <Box
-            gridArea="rightSpace"
-            background="#CCCCCC"
-            round="small"
-            margin={{"top":"medium"}}
-          ></Box>
+            <LeftContainer/>
+            <CenterContainer/>
+            <RightContainer/>
           </Grid>
+          {/* </PageGrid> */}
         </div>
       <PageFooter/>    
       </Router>
