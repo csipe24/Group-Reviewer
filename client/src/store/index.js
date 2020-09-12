@@ -166,6 +166,7 @@ export const StoreProvider = ({ children }) => {
       },
       favorites: [],
       user: {
+        id:'',
         date: '',
         email: '',
         password: '',
