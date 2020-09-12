@@ -85,7 +85,7 @@ function VotingBar ({post}) {
         values={[
           {
             value: postDislikes,
-            color: 'red',
+            color: '#FF4040',
             label: 'Dislikes',
             onHover: over => {
               setActive(over? postDislikes : "")
@@ -93,7 +93,7 @@ function VotingBar ({post}) {
           },
           {
             value: postLikes,
-            color: "green",
+            color: "#00C781",
             label: 'Likes',
             onHover: over => {
               setActive(over? postLikes : "");
