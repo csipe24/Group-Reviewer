@@ -3,11 +3,8 @@ const router = express.Router();
 const passport = require("passport");
 
 // const {Group} = require("../models");
-const {Group, Post} = require("../models");
+const { Group, Post } = require("../models");
 const { Model } = require("mongoose");
-
-
-router.post("/newGroup", passport.authenticate('jwt', { session: false }),(req, res) => {
 
 router.post(
   "/newGroup",
@@ -35,17 +32,29 @@ router.get("/getGroups", (req, res) => {
 });
 
 router.get("/group/:id", (req, res) => {
-  Post.find({groupName: req.params.id})
-  .then(groupPosts => {res.json(groupPosts)})
-  .catch(err => { res.status(422).json(err)
-  })
-})
+  Post.find({ groupName: req.params.id })
+    .then((groupPosts) => {
+      res.json(groupPosts);
+    })
+    .catch((err) => {
+      res.status(422).json(err);
+    });
+});
 
 router.delete("/group/:id", (req, res) => {
-  Group.findById({_id: req.params.id})
-  .then(groupName => groupName.remove())
-  .then(groupId => {res.json(groupId)})
-  .catch(err => res.status(422).json(err))
-})
+  Group.findById({ _id: req.params.id })
+    .then((groupName) => groupName.remove())
+    .then((groupId) => {
+      res.json(groupId);
+    })
+    .catch((err) => res.status(422).json(err));
+});
 
+router.put("/addUser/:id", (req, res) => {
+  Post.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then((postModel) => {
+      res.json(postModel);
+    })
+    .catch((err) => res.status(422).json(err));
+});
 module.exports = router;

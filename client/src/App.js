@@ -28,21 +28,27 @@ function App() {
         <div>
           <Grid
           responsive="true"
+            columns={['auto', 'medium', 'auto']}
             rows={['flex']}
-            columns={['flex', 'flex', 'flex']}
             gap="small"
             areas={[
             { name: 'leftSpace', start: [0, 0], end: [0, 0] },
-            { name: 'main', start: [0, 0], end: [2, 0] },
-            { name: 'rightSpace', start: [0, 0], end: [0, 0] }
+            { name: 'main', start: [1, 0], end: [1, 0] },
+            { name: 'rightSpace', start: [2, 0], end: [2, 0] }
           ]}
           >
+          <Box
+            gridArea="leftSpace"
+            background="#CCCCCC"
+            round="small"
+            margin={{"top":"medium"}}
+          ></Box>
           <Box
             gridArea="main"
             background="#CCCCCC"
             round="small"
             margin={{"top":"medium"}}
-            width={{min: "10%", max: "49%"}}
+  
             >
             <Switch>
               {isAuth
@@ -61,6 +67,12 @@ function App() {
               <Route component={NoMatch} />
             </Switch>
             </Box >
+          <Box
+            gridArea="rightSpace"
+            background="#CCCCCC"
+            round="small"
+            margin={{"top":"medium"}}
+          ></Box>
           </Grid>
         </div>
       <PageFooter/>    

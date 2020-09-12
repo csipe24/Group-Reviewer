@@ -66,18 +66,31 @@ router.put("/likes/:id", (req, res) => {
     .catch((err) => res.status(422).json(err));
 });
 
-router.put("/dislikes/:id", (req, res) => {
+router.put("/likesminus/:id", (req,res) =>{
+  console.log("LikesMinus");
+  const updatedLikes = (req.body.likes - 1);
+  Post.findByIdAndUpdate( {_id : req.params.id}, {likes:updatedLikes}, {new:true} )
+  .then( postModel => {res.json(postModel)})
+  .catch(err => res.status(422).json(err))
+})
+
+router.put("/dislikes/:id", (req,res) =>{
   console.log("Dislikes");
-  const updatedDislikes = req.body.dislikes + 1;
-  Post.findByIdAndUpdate(
-    { _id: req.params.id },
-    { dislikes: updatedDislikes },
-    { new: true }
-  )
-    .then((postModel) => {
-      res.json(postModel);
-    })
-    .catch((err) => res.status(422).json(err));
-});
+  const updatedDislikes = (req.body.dislikes + 1);
+  Post.findByIdAndUpdate( {_id : req.params.id}, {dislikes:updatedDislikes}, {new:true} )
+  .then( postModel => {res.json(postModel)})
+  .catch(err => res.status(422).json(err))
+})
+
+router.put("/dislikesminus/:id", (req,res) =>{
+  console.log("Dislikes");
+  const updatedDislikes = (req.body.dislikes - 1);
+  Post.findByIdAndUpdate( {_id : req.params.id}, {dislikes:updatedDislikes}, {new:true} )
+  .then( postModel => {res.json(postModel)})
+  .catch(err => res.status(422).json(err))
+})
+
+
+
 
 module.exports = router;

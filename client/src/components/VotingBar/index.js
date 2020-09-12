@@ -11,13 +11,30 @@ function VotingBar ({post}) {
     const [postLikes, setPostLikes] = useState(post.likes)
     const [postDislikes, setPostDislikes] = useState(post.dislikes)
     const [active, setActive] = useState();
+
+    const [likeActive, setLikeActive] = useState();
+    const [dislikeActive, setDislikeActive] = useState();
   
   const updateLikes = (id) => {
-    console.log(postLikes)
     api.updateLikes(id, {likes:postLikes})
       .then((res) => {
         console.log(res.data)
         setPostLikes(res.data.likes)
+        setLikeActive(true)
+        dispatch({
+          type: UPDATE_POST,
+          post: res.data
+        })
+      })
+      .catch((err) => console.log(err))
+  }
+
+  const updateLikesMinus = (id) => {
+    api.updateLikesMinus(id, {likes:postLikes})
+      .then((res) => {
+        console.log(res.data)
+        setPostLikes(res.data.likes)
+        setLikeActive(false)
         dispatch({
           type: UPDATE_POST,
           post: res.data
@@ -27,11 +44,11 @@ function VotingBar ({post}) {
   }
 
   const updateDislikes = (id) => {
-    console.log(postDislikes)
     api.updateDislikes(id, {dislikes:postDislikes})
       .then((res) => {
         console.log(res.data)
         setPostDislikes(res.data.dislikes)
+        setDislikeActive(true)
         dispatch({
           type: UPDATE_POST,
           post: res.data
@@ -39,6 +56,21 @@ function VotingBar ({post}) {
       })
       .catch((err) => console.log(err))
   }
+
+  const updateDislikesMinus = (id) => {
+    api.updateDislikesMinus(id, {dislikes:postDislikes})
+      .then((res) => {
+        console.log(res.data)
+        setPostDislikes(res.data.dislikes)
+        setDislikeActive(false)
+        dispatch({
+          type: UPDATE_POST,
+          post: res.data
+        })
+      })
+      .catch((err) => console.log(err))
+  }
+
   return (
     <Grommet>
       <Box direction="row" justify="evenly">
@@ -74,8 +106,9 @@ function VotingBar ({post}) {
             <Box direction="row" align="center" pad={{ bottom: 'xsmall' }}>
             {!active ? (
             <div>
-            <Button onClick={() => updateLikes(post._id)} icon={<Like/>} hoverIndicator/>
-            <Button alignSelf="end" onClick={() => updateDislikes(post._id)} icon={<Dislike/>} hoverIndicator/>
+            {!likeActive ? (<Button onClick={() => updateLikes(post._id)} icon={<Like/>} hoverIndicator/>):(<Button onClick={() => updateLikesMinus(post._id)} icon={<Like/>} hoverIndicator/>)}
+            {!dislikeActive ? (<Button onClick={() => updateDislikes(post._id)} icon={<Like/>} hoverIndicator/>):(<Button onClick={() => updateDislikesMinus(post._id)} icon={<Like/>} hoverIndicator/>)}
+            
             </div>
             ) : <Heading
               color="#FFAA15">

@@ -5,7 +5,6 @@ import { Grommet, Box } from 'grommet'
 
 function Feed () {
   
-
   return (
     <Grommet>
       <Box fill align ="center" justify="center">
