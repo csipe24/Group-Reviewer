@@ -62,12 +62,10 @@ function PostList() {
                   <CardHeader align="center" direction="column" gap="xxsmall">
                     <Heading color="black" level="2">
                       {post.title}
-                      <Box>
-                        <Text size={"xsmall"}>
-                          {moment(post.date).format("MMM Do")}
-                        </Text>
-                      </Box>
                     </Heading>
+                    <Box>
+                      <Text color='black' size={'small'}>{moment(post.date).format("MMM Do")}</Text>
+                    </Box>
                     <Heading margin={{ top: "none" }} color="silver" level="3">
                       {post.author}
                     </Heading>
@@ -85,7 +83,7 @@ function PostList() {
                     <VotingBar post={post} />
                   </CardBody>
 
-                  {(state.user.userName = post.author) ? (
+                  {state.user.userName === post.author ? (
                     <CardFooter
                       pad={{ horizontal: "medium" }}
                       background="light-2"

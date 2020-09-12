@@ -65,7 +65,7 @@ function RegisterForm () {
           </Box>
           <Box direction="row" justify="center" gap="medium">
             <Button primary type="submit" label="Submit" color="#00739D" />
-            <Button label="Cancel" type="reset" color="#00739D" />
+            <Button label="Clear" type="reset" color="#00739D" />
           </Box>
         </Form>
         <Button className="member-button" href="/" label="Already a member? Click here!" plain="true" color="#00739D" margin="5%" />

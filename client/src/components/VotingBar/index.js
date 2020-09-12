@@ -107,7 +107,7 @@ function VotingBar ({post}) {
             {!active ? (
             <div>
             {!likeActive ? (<Button onClick={() => updateLikes(post._id)} icon={<Like/>} hoverIndicator/>):(<Button onClick={() => updateLikesMinus(post._id)} icon={<Like/>} hoverIndicator/>)}
-            {!dislikeActive ? (<Button onClick={() => updateDislikes(post._id)} icon={<Like/>} hoverIndicator/>):(<Button onClick={() => updateDislikesMinus(post._id)} icon={<Like/>} hoverIndicator/>)}
+            {!dislikeActive ? (<Button onClick={() => updateDislikes(post._id)} icon={<Dislike/>} hoverIndicator/>):(<Button onClick={() => updateDislikesMinus(post._id)} icon={<Dislike/>} hoverIndicator/>)}
             
             </div>
             ) : <Heading
