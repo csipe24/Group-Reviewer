@@ -25,6 +25,19 @@ function GroupSearch () {
     groupSearch.current.value = ''
   }
 
+  const addUserToGroup = (id) => {
+    console.log(id)
+    api.addUserToGroup(id, {users: state.user._id})
+    .then((res)=>{
+      console.log(res.data)
+      // dispatch({
+      //   type: UPDATE_GROUP_USERS,
+      //   post: res.data
+      // })
+    })
+    .catch(err => console.log(err))
+  }
+
   return (
     <Grommet plain>
       <Box round="small" width="medium" background="#CCCCCC" margin={{"top":"25px", "bottom":"15px"}} alignContent="center" justify="center">
@@ -54,7 +67,7 @@ function GroupSearch () {
            
                   <CardBody alignContents="center" pad={{ horizontal: 'medium' }} background="light-2">
                   <Box alignContent="center" direction="column">
-                  <Link alignContent="center" to={"/group/" + state.groupSearch._id} > 
+                  <Link alignContent="center" to={"/group/" + state.groupSearch._id} onClick={addUserToGroup(state.groupSearch._id)}> 
                   <Heading level="4" color="#FFAA15">Go to Posts</Heading>
                   </Link>
                   </Box>
