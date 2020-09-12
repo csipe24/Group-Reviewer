@@ -42,6 +42,10 @@ export default {
     return axios.get('/groupapi/getGroups')
   },
 
+  getGroupsByName (groupName) {
+    return axios.get('/groupapi/getGroupsByName?search='+ groupName)
+  },
+
   removeGroup(id) {
     return axios.delete('/groupapi/group/'+ id ) 
   },

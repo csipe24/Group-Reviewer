@@ -40,7 +40,6 @@ function GroupList () {
     }
 
 
-
   return (
     <Grommet plain>
       <Box >
