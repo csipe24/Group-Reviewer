@@ -10,8 +10,7 @@ import { Grommet, Box, Button, TextInput, Heading } from 'grommet'
 function GroupPosts(){
     const [state, dispatch] = useStoreContext()
     const params = useParams()
-    console.log(params.id)
-    console.log(state)
+    
 
     const getAllPosts = () => {
         dispatch({ type: LOADING })

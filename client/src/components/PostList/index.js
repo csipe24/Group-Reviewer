@@ -11,6 +11,7 @@ import UpdateModal from '../UpdatePostModal'
 function PostList () {
   const [state, dispatch] = useStoreContext()
 
+
   // const [title, setTitle] = useState('')
   // const [body, setBody] = useState('')
 
@@ -48,7 +49,8 @@ function PostList () {
                 <VotingBar post={post}/>
                 </CardBody>
 
-                <CardFooter pad={{ horizontal: 'medium' }} background="light-2">
+                {(state.user.userName = post.author)?(
+                  <CardFooter pad={{ horizontal: 'medium' }} background="light-2">
                   <Button
                     primary label="Delete" onClick={() => removePost(post._id)}
                     color="#00739D"
@@ -60,6 +62,8 @@ function PostList () {
                     <UpdateModal post={post} closeModal={closeModal}/>
                   )}
                 </CardFooter>
+                ):("")}
+                
               </Card>
             ))}
           </Box>

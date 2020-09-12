@@ -16,12 +16,8 @@ function LoginForm () {
     const loginEmail = emailRef.current.value
     const loginPassword = passwordRef.current.value
 
-    console.log('Submit')
-    console.log(loginEmail)
-    console.log(loginPassword)
-
     login({ email: loginEmail, password: loginPassword })
-      .then(userAuth => console.log(userAuth))
+      // .then(userAuth => console.log(userAuth))
       .catch(errors => errors)
 
     emailRef.current.value = ''
