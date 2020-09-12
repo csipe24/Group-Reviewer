@@ -20,22 +20,22 @@ function CenterContainer(){
             background="#CCCCCC"
             round="small"
             margin={{"top":"medium"}}
-          >
+        >
             <Switch>
               {isAuth
               ?(
                 <div>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/feed" component={Feed} />
-                <Route exact path="/group/:id" component={GroupPosts} />
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/feed" component={Feed} />
+                    <Route exact path="/group/:id" component={GroupPosts} />
                 </div>
               )
-                :<Route exact path="/" component={Login} />
+                :   <Route exact path="/" component={Login} />
               }
               <Route exact path="/register" component={Register} />
               <Route component={NoMatch} />
             </Switch>
-            </Box >
+        </Box >
     )
 }
 
