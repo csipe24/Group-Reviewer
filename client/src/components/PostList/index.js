@@ -48,29 +48,19 @@ function PostList() {
     <Grommet plain>
       <Box align="center">
         {state.posts.length ? (
-          <Box>
-            {state.posts
-              .slice(0)
-              .reverse()
-              .map((post) => (
-                <Card
-                  key={post._id}
-                  width="medium"
-                  background="light-1"
-                  margin={{ top: "25px", bottom: "15px" }}
-                >
-                  <CardHeader align="center" direction="column" gap="xxsmall">
-                    <Heading color="black" level="2">
-                      {post.title}
-                    </Heading>
-                    <Box>
-                      <Text color='black' size={'small'}>{moment(post.date).format("MMM Do")}</Text>
-                    </Box>
-                    <Heading margin={{ top: "none" }} color="silver" level="3">
-                      {post.author}
-                    </Heading>
-                  </CardHeader>
+          <Box >
+            {state.posts.slice(0).reverse().map(post => (
+              <Card key={post._id} width="medium" background="light-1" margin={{"top":"25px", "bottom":"15px"}} >
+                <CardHeader align="center" direction="column" gap="xxsmall">
+                  <Heading margin={{bottom:'5px'}} color="black" level="3">{post.title}</Heading>
+                  <Heading  padding={{top:'10px'}} margin={{ top: 'none' }} color="silver" level="5">@{post.author}</Heading>
 
+                </CardHeader>
+             
+                <CardBody  pad="none">
+                <Heading textAlign="center" margin={{ top: 'none' }}  color="black" level="4">{post.body}</Heading>
+                <VotingBar post={post}/>
+                </CardBody>
                   <CardBody pad="none">
                     <Heading
                       textAlign="center"
