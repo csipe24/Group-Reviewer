@@ -5,6 +5,7 @@ import { LOADING, SET_POSTS, GET_GROUP } from "../store/actions"
 import api from "../utils/api"
 import PostForm from "../components/PostForm"
 import PostList from "../components/PostList"
+import UserForm from "../components/NewUserForm"
 import { Grommet, Box, Button, TextInput, Heading } from 'grommet'
 
 function GroupPosts(){
@@ -54,6 +55,7 @@ function GroupPosts(){
             {currentGroupName[0].groupName}
             </Heading>
           </Box>
+           
             <PostForm groupId={params.id} />
             <PostList />
         </Grommet>

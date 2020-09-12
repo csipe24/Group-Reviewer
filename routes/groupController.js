@@ -39,4 +39,9 @@ router.delete("/group/:id", (req, res) => {
   .catch(err => res.status(422).json(err))
 })
 
+router.put("/addUser/:id", (req,res) =>{
+  Post.findByIdAndUpdate( {_id : req.params.id}, req.body, {new:true} )
+  .then( postModel => {res.json(postModel)})
+  .catch(err => res.status(422).json(err))
+})
 module.exports = router;

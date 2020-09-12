@@ -84,7 +84,7 @@ const reducer = (state, action) => {
     case SET_GROUP_NAME:
       return {
         ...state,
-        groupName: [...state.groups, action.postGroup],
+        groups: [...state.groups, action.groupName],
         loading: false
       }
 

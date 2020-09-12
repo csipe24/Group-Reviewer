@@ -43,7 +43,7 @@ export default {
   },
 
   removeGroup(id) {
-    return axios.get('/groupapi/group/'+ id ) 
+    return axios.delete('/groupapi/group/'+ id ) 
   },
 
   groupPost (id) {
@@ -54,8 +54,19 @@ export default {
     return axios.put('/postapi/likes/' + id, data)
   },
 
+  updateLikesMinus (id, data) {
+    return axios.put('/postapi/likesminus/' + id, data)
+  },
+
   updateDislikes (id, data) {
     return axios.put('/postapi/dislikes/' + id, data)
   },
 
+  updateDislikesMinus (id, data) {
+    return axios.put('/postapi/dislikesminus/' + id, data)
+  },
+
+  newUser (id, userData) {
+    return axios.post('/groupapi/addUser/'+ id , userData)
+  },
 }

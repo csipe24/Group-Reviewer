@@ -24,7 +24,11 @@ function Navbar () {
         <Box direction="row">
           {isAuth ? (
             <Menu align="right" label="Menu" items={[
-              { label: 'Post', href: '/feed' },
+
+              // {}
+              // { label: 'Post', href: '/feed' },
+
+
               { label: 'Logout', onClick: () => { logout() } }
             ]}
             />
