@@ -160,7 +160,8 @@ export const StoreProvider = ({ children }) => {
         date: '',
         email: '',
         password: '',
-        userName: ''
+        userName: '',
+        groups: []
       },
       newGroup: {
         groupName: '',
@@ -168,6 +169,10 @@ export const StoreProvider = ({ children }) => {
         users: ''
       },
       groups: [],
+      currentGroup: {
+        groupName: '',
+        owner: ''
+      },
       loading: false
     }
   )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Grommet, Button, Meter, Text, Box } from 'grommet'
+import { Grommet, Button, Meter, Heading, Box, Stack } from 'grommet'
 import { Like, Dislike } from 'grommet-icons'
 import { useStoreContext } from '../../store/index'
 import api from '../../utils/api'
@@ -10,6 +10,7 @@ function VotingBar ({post}) {
     // eslint-disable-next-line react/prop-types
     const [postLikes, setPostLikes] = useState(post.likes)
     const [postDislikes, setPostDislikes] = useState(post.dislikes)
+    const [active, setActive] = useState();
   
   const updateLikes = (id) => {
     console.log(postLikes)
@@ -41,45 +42,65 @@ function VotingBar ({post}) {
   return (
     <Grommet>
       <Box direction="row" justify="evenly">
-      <Button onClick={() => updateLikes(post._id)} icon={<Like/>} hoverIndicator/>
-  
-      <Button alignSelf="end" onClick={() => updateDislikes(post._id)} icon={<Dislike/>} hoverIndicator/>
-      
       </Box>
+      <Box align="center" pad="medium">
+      <Stack anchor="center">
       <Meter
-        round="true"
-        type="bar"
-        background="#CCCCCC"
-        values= {[
+        type="circle"
+        background="#FFAA15"
+        size="small"
+        thickness="medium"
+        values={[
           {
-            value: state.likes,
-            color: '#00C781',
-            label: 'Likes'
+            value: postDislikes,
+            color: 'red',
+            label: 'Dislikes',
+            onHover: over => {
+              setActive(over? postDislikes : "")
+            }
           },
           {
-            value: state.dislikes,
-            color: '#FF4040',
-            label: 'Dislikes'
+            value: postLikes,
+            color: "green",
+            label: 'Likes',
+            onHover: over => {
+              setActive(over? postLikes : "");
+            }
           }
+          
         ]}
-
       />
+       <Box align="center">
+            <Box direction="row" align="center" pad={{ bottom: 'xsmall' }}>
+            {!active ? (
+            <div>
+            <Button onClick={() => updateLikes(post._id)} icon={<Like/>} hoverIndicator/>
+            <Button alignSelf="end" onClick={() => updateDislikes(post._id)} icon={<Dislike/>} hoverIndicator/>
+            </div>
+            ) : <Heading
+              color="#FFAA15">
+              {active}
+              </Heading>
+            }
+            </Box>
+        </Box>
+
+        {/* <Box align="left">
+        <Heading
+          align="start"
+          value={postLikes}
+          color="green">
+          {post.likes}
+        </Heading>
+        </Box> */}
+      </Stack>
+    
+ 
+
+      </Box>
+
       <Box direction="row" gap="300px" justify="evenly" >
-      
-      <Text
-      textAlign="start"
-      value={postLikes}
-      color="black">
-      {post.likes}
-      </Text>
-
-      <Text
-      textAlign="end"
-      value={postDislikes}
-      color="black">
-      {post.dislikes}
-      </Text>
-
+ 
       </Box>
      
     </Grommet>

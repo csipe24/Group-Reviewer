@@ -9,19 +9,9 @@ function PostForm ({groupId}) {
   // const isAuth = useIsAuthenticated()
   const titleRef = useRef()
   const bodyRef = useRef()
-  const [, dispatch] = useStoreContext()
+  const [state, dispatch] = useStoreContext()
 
-  const [author, setAuthor] = useState()
-
-  const getUser = () => {
-    api.authenticated()
-      .then(res => {
-        setAuthor(res.data.userName)
-      })
-      .catch(err => console.log(err))
-  }
-
-  getUser()
+  const author = state.user.userName
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -48,14 +38,11 @@ function PostForm ({groupId}) {
 
   return (
     <Grommet theme={{ global: { colors: { doc: '#CCCCCC' } } }}>
-      <Box direction="row" margin={{ top: 'medium' }}>
-        <Heading textAlign="center" level="2" size="medium">Food Lover Group</Heading>
-      </Box>
 
-      <Box direction="row" justify="center" background="doc" margin={{ top: 'medium' }}>
+      <Box pad="small" round="small" direction="row" justify="center" background="#FFAA15" margin="medium">
         <Form onReset={event => console.log(event)} onSubmit= {handleSubmit}>
           <Box width="medium">
-            <FormField label="Title">
+            <FormField label="Title" name="Title">
               <TextInput
                 ref={titleRef}
                 validate={[
