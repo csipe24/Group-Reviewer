@@ -42,6 +42,7 @@ function PostList () {
                 <CardHeader align="center" direction="column" gap="xxsmall">
                   <Heading color="black" level="2">{post.title}</Heading>
                   <Heading  margin={{ top: 'none' }} color="silver" level="3">{post.author}</Heading>
+                  <Heading>{post.date}</Heading>
                 </CardHeader>
              
                 <CardBody  pad="none">
@@ -49,7 +50,7 @@ function PostList () {
                 <VotingBar post={post}/>
                 </CardBody>
 
-                {(state.user.userName = post.author)?(
+                {(state.user.userName === post.author)?(
                   <CardFooter pad={{ horizontal: 'medium' }} background="light-2">
                   <Button
                     primary label="Delete" onClick={() => removePost(post._id)}

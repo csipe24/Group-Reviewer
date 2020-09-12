@@ -56,8 +56,7 @@ function GroupList () {
                 </Heading>
               
                 </CardHeader>
-
-                {(state.user._id = group.owner)? ( 
+                {(state.user._id === group.owner) ? ( 
                 // <Box alignSelf="end"  gap="xsmall" round="full" overflow="hidden" background="red" margin="small">
                 <Button color="red" margin="small" icon={<Close/>} hoverIndicator={{color:"red", light:"red"}} onClick={() => removeGroup(group._id)} />
         
