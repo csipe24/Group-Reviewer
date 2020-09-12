@@ -50,7 +50,7 @@ function PostList () {
                 <VotingBar post={post}/>
                 </CardBody>
 
-                {(state.user.userName = post.author)?(
+                {(state.user.userName === post.author)?(
                   <CardFooter pad={{ horizontal: 'medium' }} background="light-2">
                   <Button
                     primary label="Delete" onClick={() => removePost(post._id)}
