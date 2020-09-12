@@ -17,6 +17,7 @@ import {
 
   SET_GROUP_NAME,
   GET_GROUP,
+  GET_GROUP_SEARCH,
   REMOVE_GROUP
 } from './actions'
 
@@ -95,6 +96,14 @@ const reducer = (state, action) => {
         loading: false
       }
 
+    case GET_GROUP_SEARCH:
+       return {
+        ...state,
+        groupSearch: action.groupSearch,
+        loading: false
+       }
+        
+
     case REMOVE_GROUP:
       return {
         ...state,
@@ -172,6 +181,11 @@ export const StoreProvider = ({ children }) => {
       currentGroup: {
         groupName: '',
         owner: ''
+      },
+      groupSearch: 
+      {
+        groupName: '',
+        _id: 0,
       },
       loading: false
     }

@@ -41,6 +41,12 @@ router.get("/group/:id", (req, res) => {
     });
 });
 
+router.get("/getGroupsByName", (req, res) => {
+  Group.find({groupName: req.query.search})
+  .then(req => {res.json(req)})
+  .catch(err => res.status(422).json(err));
+})
+
 router.delete("/group/:id", (req, res) => {
   Group.findById({ _id: req.params.id })
     .then((groupName) => groupName.remove())

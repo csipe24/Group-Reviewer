@@ -40,6 +40,7 @@ function GroupList () {
       .catch((err) => console.log(err));
   };
 
+
   return (
     <Grommet plain>
       <Box >

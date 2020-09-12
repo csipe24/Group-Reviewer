@@ -5,6 +5,7 @@ import UserInfoGlobal from '../components/UserProfileInfoGlobal'
 import GroupForm from '../components/GroupForm'
 import GroupList from '../components/GroupList'
 import { Grommet, Heading, Box } from 'grommet'
+import GroupSearch from '../components/GroupSearch'
 
 
 function Home () {
@@ -12,6 +13,8 @@ function Home () {
     <Grommet >
       <Box align="center" >
       <Heading>Hub</Heading>
+      {/* Move to another grid  */}
+      <GroupSearch/>
       <GroupForm/>
       <GroupList />
       </Box>
