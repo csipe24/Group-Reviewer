@@ -6,7 +6,7 @@ import './footer.css'
 function PageFooter () {
   return (
     <Grommet>
-      <Footer background="#FFAA15" justify="center" margin={{top: "small"}} pad="small">
+      <Footer className="footer" background="#FFAA15" justify="center" margin={{top: "small"}} pad="small">
         <Text textAlign="center" size="medium">
           <Button
             icon={<Github />}

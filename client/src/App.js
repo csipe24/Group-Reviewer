@@ -7,6 +7,7 @@ import CenterContainer from "./components/CenterContainer";
 import RightContainer from "./components/RightContainer";
 import PageFooter from "./components/Footer";
 import { BrowserRouter as Router} from "react-router-dom";
+import Push from "./components/Push";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <RightContainer/>
           </PageGrid>
         </div>
+        <Push/>
       <PageFooter/>    
       </Router>
     </Grommet>

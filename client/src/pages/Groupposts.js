@@ -42,7 +42,7 @@ function GroupPosts(){
       useEffect(() => {
         getAllPosts()
         getGroups()
-      }, [])
+      }, [params.id])
 
       const currentGroupName = state.groups.filter((group)=>{
         if( group._id == params.id ) return state.groups
