@@ -57,12 +57,10 @@ router.delete("/group/:id", (req, res) => {
 });
 
 router.put("/addUser/:id", (req, res) => {
-  console.log(req.params.id)
-  console.log(req.body)
   Group.findByIdAndUpdate(
     { _id: req.params.id },
 
-    {$push: {users: req.body.users}},
+    {$addToSet: {users: req.body.users}},
     {new:true},
     function(err, post){
       if(err){console.log(err)}

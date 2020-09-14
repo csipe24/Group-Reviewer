@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch} from "react-router-dom";
+import { Redirect, Route, Switch} from "react-router-dom";
 import { Box } from "grommet";
 import Register from "../../pages/Register";
 import Home from "../../pages/Home";
@@ -26,11 +26,17 @@ function CenterContainer(){
               ?(
                 <div>
                     <Route exact path="/" component={Home} />
-                    <Route exact path="/feed" component={Feed} />
+                    {/* <Route exact path="/feed" component={Feed} /> */}
                     <Route exact path="/group/:id" component={GroupPosts} />
+                   
                 </div>
               )
-                :   <Route exact path="/" component={Login} />
+                : (   
+                  <div>
+                <Route exact path="/group/" component={Login}/>
+                <Route exact path="/" component={Login} />
+                </div>
+                )
               }
               <Route exact path="/register" component={Register} />
               <Route component={NoMatch} />
