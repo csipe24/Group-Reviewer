@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch} from "react-router-dom";
+import { Redirect, Route, Switch} from "react-router-dom";
 import { Box } from "grommet";
 import Register from "../../pages/Register";
 import Login from "../../pages/Login";
@@ -23,10 +23,15 @@ function CenterContainer(){
               {isAuth
               ?(
                 <div>
-                    <Route exact path="/group/:id" component={GroupPosts} />
+                  <Route exact path="/group/:id" component={GroupPosts} /> 
                 </div>
               )
-                :   <Route exact path="/" component={Login} />
+                : (   
+                  <div>
+                <Route exact path="/group/" component={Login}/>
+                <Route exact path="/" component={Login} />
+                </div>
+                )
               }
               <Route exact path="/register" component={Register} />
               <Route component={NoMatch} />

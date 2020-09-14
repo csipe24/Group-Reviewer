@@ -11,19 +11,21 @@ import { Close } from 'grommet-icons'
 
 function GroupList () {
   const [state, dispatch] = useStoreContext()
-  console.log(state)
+
   
   const getGroups = () => {
     dispatch({ type: LOADING })
     api.getGroups()
       .then(results => {
-        // console.log(results.data)
+        console.log(results.data)
+        console.log(state)
           dispatch({
             type: GET_GROUP,
             groups: results.data
           })
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err)
+      );
   };
 
   useEffect(() => {
@@ -46,7 +48,7 @@ function GroupList () {
       <Box >
         {state.groups.length ? (
           <Box >
-            {state.groups.slice(0).reverse().map(group => (
+            {state.groups.filter(group => group.users.includes(state.userAuth.id)).slice(0).reverse().map(group => (
               <Card key={group._id} width="medium" background="light-1" margin="medium" >
                 <Stack anchor="right">
 

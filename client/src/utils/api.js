@@ -45,6 +45,10 @@ export default {
     return axios.get('/groupapi/getGroupsByName?search='+ groupName)
   },
 
+  addUserToGroup (id, data) {
+    return axios.put('/groupapi/addUser/'+id, data)
+  },
+
   removeGroup(id) {
     return axios.delete('/groupapi/group/'+ id ) 
   },
@@ -69,7 +73,7 @@ export default {
     return axios.put('/postapi/dislikesminus/' + id, data)
   },
 
-  newUser (id, userData) {
-    return axios.post('/groupapi/addUser/'+ id , userData)
-  },
+  // newUser (id, userData) {
+  //   return axios.post('/groupapi/addUser/'+ id , userData)
+  // },
 }
