@@ -1,12 +1,10 @@
-# Title
-
-Group Reviewer
+# myCircle
 
 ## Description
 
-Welcome to the Group Reviewer App! This is a great open source application to that allows you and a group of your peers to vote/comment on items of interest.
+Welcome to myCircle! This is a great open source application to that allows you and a group of your peers to vote/comment on items of interest. Users can create an account and join or make groups where they can make posts for activities to be voted on.
 
-This application will use a Mongo database, React JS and an express server.
+This application uses a Mongo database with an Express server and was built in React JS.
 
 Since the application is deployed via Heroku, it allows users with an internet connection to use the application on any web browser!
 
@@ -15,29 +13,15 @@ Since the application is deployed via Heroku, it allows users with an internet c
 - [Title](Readme.md#title)
 - [Description](Readme.md#description)
 - [Installation](Readme.md#installation)
-- [Usage](Readme.md#contributing)
-- [Badges](Readme.md#license)
 - [Tests](Readme.md#tests)
 
 ## Installation
 
-npm install
+This app can be cloned from the repository to your local machine. To use it locally, first run `npm install` then `npm start`.
 
-## License
+## Contributors [![GitHub contributors](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg?style=flat)](https://github.com/csipe24/Group-Reviewer/blob/master/README.md)
 
-![GPLv3 license](https://img.shields.io/badge/license-GPLv3-blue.svg)
-
-## Contribution [![GitHub contributors](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg?style=flat)](https://github.com/csipe24/Group-Reviewer/blob/master/README.md)
-
-[Bunsan](https://github.com/bunsanphe)
-[Caleb](https://github.com/ICVRXS)
-[Chris](https://github.com/csipe24)
-[Niv](https://github.com/Nivolving)
-
-## Tests
-
-N/A
-
-## Usage
-
-N/A
+- [Bunsan](https://github.com/bunsanphe)
+- [Caleb](https://github.com/ICVRXS)
+- [Chris](https://github.com/csipe24)
+- [Niv](https://github.com/Nivolving)

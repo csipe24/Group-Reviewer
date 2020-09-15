@@ -12,7 +12,7 @@ function Home () {
       <Heading>Hub</Heading>
       {/* Move to another grid  */}
       <GroupSearch/>
-      <GroupForm/>
+      <GroupForm />
       <GroupList />
       </Box>
     </Grommet>

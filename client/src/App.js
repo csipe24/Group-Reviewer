@@ -18,7 +18,7 @@ function App() {
           <PageGrid>
             <LeftContainer/>
             <CenterContainer/>
-            <RightContainer/>
+            {/* <RightContainer/> */}
           </PageGrid>
         </div>
         <Push/>

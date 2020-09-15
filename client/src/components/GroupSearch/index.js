@@ -88,4 +88,4 @@ function GroupSearch () {
   )
 }
 
-export default GroupSearch
+export default GroupSearch;
