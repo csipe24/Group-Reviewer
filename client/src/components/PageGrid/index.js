@@ -3,7 +3,7 @@ import { Grid } from "grommet";
 
 function PageGrid(props) {
     return(
-        <Grid
+        <Grid className="page-grid"
             responsive="true"
             columns={['auto', 'auto', 'auto', 'auto', 'auto']}
             rows={['flex']}

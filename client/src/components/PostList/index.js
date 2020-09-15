@@ -60,16 +60,16 @@ function PostList() {
                   margin={{ top: "25px", bottom: "15px" }}
                 >
                   <CardHeader align="center" direction="column" gap="xxsmall">
-                    <Heading color="black" level="2">
+                    <Heading margin={{ bottom: "5px" }} color="black" level="3">
                       {post.title}
                     </Heading>
                     <Box>
-                      <Text color="black" size={"small"}>
+                      <Text margin={{ bottom:"5px" }} color="black" size={"small"}>
                         {moment(post.date).format("MMM Do")}
                       </Text>
                     </Box>
-                    <Heading margin={{ top: "none" }} color="silver" level="3">
-                      {post.author}
+                    <Heading margin={{ top: "none" }} color="silver" level="5">
+                      @{post.author}
                     </Heading>
                   </CardHeader>
 
@@ -78,7 +78,7 @@ function PostList() {
                       textAlign="center"
                       margin={{ top: "none" }}
                       color="black"
-                      level="5"
+                      level="4"
                     >
                       {post.body}
                     </Heading>

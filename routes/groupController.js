@@ -57,10 +57,21 @@ router.delete("/group/:id", (req, res) => {
 });
 
 router.put("/addUser/:id", (req, res) => {
-  Post.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true })
-    .then((postModel) => {
-      res.json(postModel);
+  Group.findByIdAndUpdate(
+    { _id: req.params.id },
+
+    {$addToSet: {users: req.body.users}},
+    {new:true},
+    function(err, post){
+      if(err){console.log(err)}
+      else {console.log(post)}
+    }
+    )
+    .then((group) => {
+      res.json(group);
     })
     .catch((err) => res.status(422).json(err));
 });
+
+
 module.exports = router;
