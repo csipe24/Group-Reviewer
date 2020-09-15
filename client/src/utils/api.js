@@ -49,6 +49,10 @@ export default {
     return axios.put('/groupapi/addUser/'+id, data)
   },
 
+  userLeaveGroup(id, data) {
+    return axios.put("/groupapi/removeUser/"+id, data);
+  },
+
   removeGroup(id) {
     return axios.delete('/groupapi/group/'+ id ) 
   },

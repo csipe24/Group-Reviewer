@@ -17,8 +17,7 @@ function GroupList () {
     dispatch({ type: LOADING })
     api.getGroups()
       .then(results => {
-        console.log(results.data)
-        console.log(state)
+        // console.log(results.data)
           dispatch({
             type: GET_GROUP,
             groups: results.data
@@ -41,6 +40,20 @@ function GroupList () {
       })
       .catch((err) => console.log(err));
   };
+
+  const leaveGroup = (id) => {
+    console.log("Testing Leave Group")
+    console.log(id)
+    api.userLeaveGroup(id, {users: state.user._id})
+    .then((res)=>{
+      console.log(res.data)
+      // dispatch({
+      //   type: UPDATE_GROUP_USERS,
+      //   post: res.data
+      // })
+    })
+    .catch(err => console.log(err))
+  }
 
 
   return (
@@ -76,11 +89,15 @@ function GroupList () {
                 <Heading level="4" color="#FFAA15">Go to Posts</Heading>
                 </Link>
 
-                <Link  > 
-                <Heading level="4" color="#FFAA15">Manage Users</Heading>
-                </Link>
-              
-
+                {/* If Statement Here */}
+                <Button
+                        primary
+                        label="Leave Group"
+                        onClick={() => leaveGroup(group._id)}
+                        color="#00739D"
+                      />
+            
+            
                 </Box>
 
               
