@@ -59,19 +59,30 @@ router.delete("/group/:id", (req, res) => {
 router.put("/addUser/:id", (req, res) => {
   Group.findByIdAndUpdate(
     { _id: req.params.id },
-
     {$addToSet: {users: req.body.users}},
     {new:true},
     function(err, post){
       if(err){console.log(err)}
-      else {console.log(post)}
-    }
-    )
+      else {console.log(post)}})
     .then((group) => {
       res.json(group);
     })
     .catch((err) => res.status(422).json(err));
 });
 
+router.put("/removeUser/:id", (req, res) => {
+  console.log("testing Route")
+  Group.findByIdAndUpdate(
+    { _id: req.params.id },
+    {$pull: {users: req.body.users}},
+    {new:true},
+    function(err, post){
+      if(err){console.log(err)}
+      else {console.log(post)}})
+    .then((group) => {
+      res.json(group);
+    })
+    .catch((err) => res.status(422).json(err));
+});
 
 module.exports = router;

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { Grommet, Form, FormField, Box, Button, TextInput, Heading, Card, Stack, CardHeader, CardBody} from 'grommet'
 import api from '../../utils/api'
 import { Link } from "react-router-dom"
@@ -8,13 +8,15 @@ import { GET_GROUP_SEARCH } from '../../store/actions'
 function GroupSearch () {
   const groupSearch = useRef()
   const [state, dispatch] = useStoreContext()
-  const newUserRef = useRef()
+  const [search, setSearch] = useState(false);
+  // const newUserRef = useRef()
 
   const handleSubmit = e => {
     e.preventDefault()
     api.getGroupsByName( groupSearch.current.value )
     .then(results => {
       console.log(results.data)
+      setSearch(true)
         dispatch({
           type: GET_GROUP_SEARCH,
           groupSearch: results.data[0]
@@ -26,6 +28,7 @@ function GroupSearch () {
   }
 
   const addUserToGroup = (id) => {
+    console.log("Testing Add User ID")
     console.log(id)
     api.addUserToGroup(id, {users: state.user._id})
     .then((res)=>{
@@ -57,30 +60,33 @@ function GroupSearch () {
       </Box>
 
       <Box>
-          <Box>
-          {/* {state.groupSearch.groupName.length */}
-
-          {state.groupSearch != undefined  ? (
-                 <Card key={state.groupSearch._id} background="light-1" margin="medium" alignContent="center">
-                
-                 <CardHeader  pad="small">
-                 <Heading color="black">{state.groupSearch.groupName}</Heading>
-                 </CardHeader>
-           
-                  <CardBody alignContents="center" pad={{ horizontal: 'medium' }} background="light-2">
-                  <Box alignContent="center" direction="column">
-                  <Link alignContent="center" to={"/group/" + state.groupSearch._id} onClick={addUserToGroup(state.groupSearch._id)}> 
-                  <Heading level="4" color="#FFAA15">Go to Posts</Heading>
-                  </Link>
-                  </Box>
-                  </CardBody>
-
-                </Card>
-          ):(
+        {search ? (
+           <Box>
+           {state.groupSearch != undefined  ? (
+                  <Card key={state.groupSearch._id} background="light-1" margin="medium" alignContent="center">
+                 
+                  <CardHeader  pad="small">
+                  <Heading color="black">{state.groupSearch.groupName}</Heading>
+                  </CardHeader>
+            
+                   <CardBody alignContents="center" pad={{ horizontal: 'medium' }} background="light-2">
+                   <Box alignContent="center" direction="column">
+                   <Link alignContent="center" to={"/group/" + state.groupSearch._id} onClick={()=>{addUserToGroup(state.groupSearch._id)}}> 
+                   <Heading level="4" color="#FFAA15">Go to Posts</Heading>
+                   </Link>
+                   </Box>
+                   </CardBody>
+ 
+                 </Card>
+           ):(
             <Heading></Heading>
-          )}
-     
-          </Box>
+           )}
+      
+           </Box>
+
+        ) : (    <Heading></Heading>)}
+
+         
       
       </Box>
 
