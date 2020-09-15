@@ -5,7 +5,7 @@ function PageGrid(props) {
     return(
         <Grid className="page-grid"
             responsive="true"
-            columns={['auto', 'auto', 'auto', 'auto', 'auto']}
+            columns={['auto', 'large', 'large', 'auto']}
             rows={['flex']}
             gap="small"
             areas={[

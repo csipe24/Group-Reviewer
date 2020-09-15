@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grommet, Box, Header, Button, Menu } from 'grommet'
+import { Radial } from 'grommet-icons';
 import { Home, Help } from 'grommet-icons'
 import { useIsAuthenticated, useLogout } from '../../utils/auth'
 import UserInfo from '../UserProfileInfoGlobal'
@@ -14,21 +15,10 @@ function Navbar () {
           <UserInfo />) : (
           <Button href="/help" alt="Help"><Help /></Button>
         )}
-        {/* <Select label= "Groups"
-                options={["Group 1" , "Group 2"]}
-                // value={value}
-                // onChange={({ option }) => setValue(option)}
-                /> */}
-        <h1>myCircle</h1>
-
+        <h1 className="logo"><Radial color="#00739D" /> myCircle</h1>
         <Box direction="row">
           {isAuth ? (
             <Menu align="right" label="Menu" items={[
-
-              // {}
-              // { label: 'Post', href: '/feed' },
-
-
               { label: 'Logout', onClick: () => { logout() } }
             ]}
             />
