@@ -183,11 +183,12 @@ export const StoreProvider = ({ children }) => {
         groupName: '',
         owner: ''
       },
-      groupSearch: 
-      {
-        groupName: '',
-        _id: 0,
-      },
+      groupSearch: []
+      // {
+      //   groupName: '',
+      //   _id: 0,
+      // }
+      ,
       loading: false
     }
   )

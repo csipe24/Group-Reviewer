@@ -30,10 +30,11 @@ function CenterContainer(){
                   <div>
                 <Route exact path="/group/" component={Login}/>
                 <Route exact path="/" component={Login} />
+                <Route exact path="/register" component={Register} />
                 </div>
                 )
               }
-              <Route exact path="/register" component={Register} />
+        
               <Route component={NoMatch} />
             </Switch>
         </Box >

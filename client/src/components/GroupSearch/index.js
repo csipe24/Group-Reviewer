@@ -14,7 +14,7 @@ function GroupSearch () {
     e.preventDefault()
     api.getGroupsByName( groupSearch.current.value )
     .then(results => {
-      // console.log(results.data)
+      console.log(results.data)
         dispatch({
           type: GET_GROUP_SEARCH,
           groupSearch: results.data[0]
@@ -57,8 +57,10 @@ function GroupSearch () {
       </Box>
 
       <Box>
-          <Box >
-          {state.groupSearch.groupName != "" ? (
+          <Box>
+          {/* {state.groupSearch.groupName.length */}
+
+          {state.groupSearch != undefined  ? (
                  <Card key={state.groupSearch._id} background="light-1" margin="medium" alignContent="center">
                 
                  <CardHeader  pad="small">
