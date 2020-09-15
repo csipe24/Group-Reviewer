@@ -9,13 +9,14 @@ export const LOADING = 'LOADING'
 export const UPDATE_POST = 'UPDATE_POST'
 
 // Likes
-export const UPDATE_LIKES = "UPDATE_LIKES"
+// export const UPDATE_LIKES = "UPDATE_LIKES"
 
 // GROUPS
 export const SET_GROUP_NAME = 'SET_GROUP_NAME'
 export const REMOVE_GROUP = 'REMOVE_GROUP'
 export const GET_GROUP = 'GET_GROUP'
 export const GET_GROUP_SEARCH = 'GET_GROUP_SEARCH'
+// export const UPDATE_GROUP_LIST = 'UPDATE_GROUP_LIST'
 
 // export const ADD_FAVORITE = "ADD_FAVORITE";
 // export const REMOVE_FAVORITE = "REMOVE_FAVORITE";

@@ -3,7 +3,7 @@ import { useStoreContext } from "../../store/index";
 import api from "../../utils/api";
 import { Link } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
-import { GET_GROUP, REMOVE_GROUP, LOADING } from "../../store/actions";
+import { GET_GROUP, REMOVE_GROUP, LOADING, UPDATE_GROUP_LIST} from "../../store/actions";
 
 // eslint-disable-next-line no-unused-vars
 import { Grommet, CardHeader, Box, Card, CardBody, CardFooter, Button, Heading, Stack} from 'grommet'
@@ -42,15 +42,13 @@ function GroupList () {
   };
 
   const leaveGroup = (id) => {
-    console.log("Testing Leave Group")
-    console.log(id)
     api.userLeaveGroup(id, {users: state.user._id})
     .then((res)=>{
       console.log(res.data)
-      // dispatch({
-      //   type: UPDATE_GROUP_USERS,
-      //   post: res.data
-      // })
+      dispatch({
+        type: REMOVE_GROUP,
+        _id: id,
+      })
     })
     .catch(err => console.log(err))
   }
@@ -67,7 +65,7 @@ function GroupList () {
 
                 <CardHeader  pad="small">
                
-                <Heading margin="small" align="center" color="Black" level="3">{group.groupName}
+                <Heading margin="small" align="center" color="#FFAA15" level="3">{group.groupName}
                 </Heading>
               
                 </CardHeader>
@@ -95,6 +93,9 @@ function GroupList () {
                         label="Leave Group"
                         onClick={() => leaveGroup(group._id)}
                         color="#00739D"
+                        margin="small"
+                        size="small"
+                        fill="false"
                       />
             
             

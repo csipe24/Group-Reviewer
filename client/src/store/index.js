@@ -8,7 +8,7 @@ import {
   SET_POSTS,
   ADD_POST,
   UPDATE_POST,
-  UPDATE_LIKES,
+  UPDATE_GROUP_LIST,
   // ADD_FAVORITE,
   // UPDATE_FAVORITES,
   // REMOVE_FAVORITE,
@@ -111,6 +111,14 @@ const reducer = (state, action) => {
           return group._id !== action._id
         })
       }
+
+    // case UPDATE_GROUP_LIST:
+    //     return {
+    //       ...state,
+    //       groups: state.groups.filter((group) => {
+    //         return group._id !== group._id
+    //       })
+    //     }
 
       // case ADD_FAVORITE:
       //   return {

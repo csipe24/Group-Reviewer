@@ -51,13 +51,23 @@ function GroupPosts(){
     return (
         <Grommet>
            <Box direction="row" margin={{ top: 'medium' }} justify="center">
-          <Heading textAlign="center" level="2" size="medium">
+
+           {currentGroupName[0] ? (  
+           <Heading textAlign="center" level="2" size="medium">
             {currentGroupName[0].groupName}
             </Heading>
+            ):(
+            <Heading></Heading>
+            )}
+  
           </Box>
            
+          {currentGroupName[0] ? (  
+            <Box>
             <PostForm groupId={params.id} />
             <PostList />
+            </Box>
+          ):(<Heading></Heading>)}
         </Grommet>
 
     )
