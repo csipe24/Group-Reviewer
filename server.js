@@ -28,9 +28,8 @@ app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'))
 })
 
-const MONGODB_URI = 'mongodb+srv://dbProject3User1:nvw6dPTlHVqKkCiy@cluster0.obrsd.mongodb.net/groupreviewer?retryWrites=true&w=majority'
+const MONGODB_URI = process.env.MONGODB_URI
 
-mongoose
   .connect(
     MONGODB_URI || 'mongodb://localhost/groupreviewer',
     {
