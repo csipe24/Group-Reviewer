@@ -34,7 +34,7 @@ function LeftContainer(){
                     ):  
                         <div className="welcome"  align="center">
                             <h1>Welcome to myCircle</h1>
-                            <p>myCircle is a social site built to help you and your circle plan your gatherings easier.</p>
+                            <p>myCircle is a social site built to help you and your circle plan your gatherings!</p>
                             <p>Ever try to pick out a place to eat or a movie to see but no one can agree on where to go? With myCircle, you can propose an activity to your group and let your friends vote on whether they want to do that activity or not.</p>
                             <p>Create or join a group and start planning your next outing today!</p>
                         </div>
