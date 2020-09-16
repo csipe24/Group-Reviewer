@@ -90,7 +90,7 @@ function GroupList () {
                 </Link>
 
                 {/* If Statement Here */}
-                <Button
+                <Button margin="small"
                         primary
                         label="Leave Group"
                         onClick={() => leaveGroup(group._id)}
