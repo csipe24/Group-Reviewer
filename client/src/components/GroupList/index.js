@@ -88,12 +88,11 @@ function GroupList () {
                 </Link>
 
                 {/* If Statement Here */}
-                <Button margin="small"
+                <Button margin={{ bottom: "small" }}
                         primary
                         label="Leave Group"
                         onClick={() => leaveGroup(group._id)}
                         color="#00739D"
-                        margin="small"
                         size="small"
                         fill="false"
                       />
